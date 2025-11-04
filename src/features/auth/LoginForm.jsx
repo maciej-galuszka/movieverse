@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "../auth/authSlice.js";
+import { login, resetError } from "../auth/authSlice.js";
 import Button from "../../components/Button";
 
 function LoginForm() {
@@ -19,9 +19,10 @@ function LoginForm() {
 
   useEffect(
     function () {
-      if (isAuthenticated) navigate("/");
+      dispatch(resetError());
+      if (isAuthenticated) navigate("/", { replace: true });
     },
-    [isAuthenticated, navigate]
+    [isAuthenticated, navigate, dispatch]
   );
 
   return (

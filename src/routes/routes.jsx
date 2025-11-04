@@ -7,6 +7,9 @@ import Login from "@/pages/Login";
 import Dashboard from "../pages/Dashboard";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
+import Profile from "../pages/Profile";
+import Watched from "../pages/Watched";
+import Movies from "../pages/Movies";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +43,15 @@ const router = createBrowserRouter([
             element: <Dashboard />,
           },
           {
-            index: true,
+            path: "movies",
+            element: <Movies />,
+          },
+          {
+            path: "watched",
+            element: <Watched />,
+          },
+          {
+            path: "profile",
             element: <Profile />,
           },
         ],

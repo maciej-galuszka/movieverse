@@ -1,5 +1,5 @@
 function Profile() {
-  return <div></div>;
+  return <div className="text-white">PROFILE</div>;
 }
 
 export default Profile;
