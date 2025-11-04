@@ -51,6 +51,10 @@ const router = createBrowserRouter([
             element: <Watched />,
           },
           {
+            path: "wishlist",
+            element: <Wishlist />,
+          },
+          {
             path: "profile",
             element: <Profile />,
           },

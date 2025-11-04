@@ -1,26 +1,20 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Logo from "@/components/Logo";
+import AppNav from "./AppNav";
 import NavButton from "./NavButton";
+import HeaderNav from "./HeaderNav";
 
 function Header() {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
   return (
-    <header className="flex w-full items-center justify-between bg-violet-800 px-3 py-1 text-white sm:px-8 sm:py-2">
-      <Link to="/">
+    <header className="flex w-full items-center justify-between bg-violet-800 px-3 py-1 text-white sm:px-8">
+      <Link to={isAuthenticated ? "/app" : "/"}>
         <Logo />
       </Link>
-      <nav className="flex justify-between sm:space-x-5" aria-label="Main navigation">
-        <NavButton type="transparent" to="/about">
-          ABOUT
-        </NavButton>
 
-        <NavButton type="transparent" to="/pricing">
-          PRICING
-        </NavButton>
-
-        <NavButton className="grow" type="primary" to="/login">
-          LOGIN
-        </NavButton>
-      </nav>
+      {isAuthenticated ? <AppNav /> : <HeaderNav />}
     </header>
   );
 }
