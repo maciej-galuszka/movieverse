@@ -44,7 +44,7 @@ function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          {error && <p className="mt-4 rounded-sm bg-red-200 p-2 text-red-700">{error}</p>}
+          {error && <p className="mt-4 rounded-sm bg-red-200 px-2 py-1 text-red-700">{error}</p>}
           <div className="mt-3 flex justify-between sm:mt-6 sm:block sm:space-x-5">
             <Button htmlType="submit">LOGIN</Button>
             <Button>CREATE ACCOUNT</Button>

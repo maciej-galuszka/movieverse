@@ -6,6 +6,7 @@ import About from "@/pages/About";
 import Login from "@/pages/Login";
 import Dashboard from "../pages/Dashboard";
 import ProtectedRoute from "./ProtectedRoute";
+import PublicRoute from "./PublicRoute";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />,
+        element: <PublicRoute />,
+        errorElement: null,
       },
       {
         path: "/app",
@@ -36,6 +38,10 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Dashboard />,
+          },
+          {
+            index: true,
+            element: <Profile />,
           },
         ],
       },
