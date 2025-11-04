@@ -2,7 +2,7 @@ import NavButton from "./NavButton";
 
 function HeaderNav() {
   return (
-    <nav className="flex justify-between sm:space-x-5" aria-label="Main navigation">
+    <nav className="flex justify-between space-x-2 sm:space-x-5" aria-label="Main navigation">
       <NavButton type="transparent" to="/about">
         ABOUT
       </NavButton>

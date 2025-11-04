@@ -5,6 +5,9 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
+      fontSize: {
+        xxs: "0.625rem",
+      },
       colors: {
         dark: "#212529",
         lightGray: "#434a52",

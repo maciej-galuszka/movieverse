@@ -10,6 +10,7 @@ import PublicRoute from "./PublicRoute";
 import Profile from "../pages/Profile";
 import Watched from "../pages/Watched";
 import Movies from "../pages/Movies";
+import Wishlist from "../pages/Wishlist";
 
 const router = createBrowserRouter([
   {

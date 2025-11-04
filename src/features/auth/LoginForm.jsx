@@ -31,7 +31,7 @@ function LoginForm() {
         <form action="" className="flex flex-col text-white" onSubmit={handleLogin}>
           <label className="text-xs font-medium sm:text-base">Email address</label>
           <input
-            className="mt-2 h-6 rounded-md pl-3 text-dark sm:h-9"
+            className="mt-2 h-6 rounded-md pl-2 text-xs text-dark sm:h-9 sm:text-base"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -40,13 +40,13 @@ function LoginForm() {
           <label className="mt-2 text-xs font-medium sm:mt-4 sm:text-base">Password</label>
           <input
             type="password"
-            className="mt-2 rounded-md pl-3 text-dark sm:h-9"
+            className="mt-2 h-6 rounded-md pl-2 text-xs text-dark sm:h-9 sm:text-base"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
           {error && <p className="mt-4 rounded-sm bg-red-200 px-2 py-1 text-red-700">{error}</p>}
-          <div className="mt-3 flex justify-between sm:mt-6 sm:block sm:space-x-5">
+          <div className="mt-3 flex justify-between gap-1 sm:mt-6 sm:block sm:space-x-5">
             <Button htmlType="submit">LOGIN</Button>
             <Button>CREATE ACCOUNT</Button>
           </div>
