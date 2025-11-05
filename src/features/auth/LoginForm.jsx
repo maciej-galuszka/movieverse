@@ -9,7 +9,7 @@ function LoginForm() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const error = useSelector((state) => state.auth.error);
-  const [email, setEmail] = useState("John@example.co");
+  const [email, setEmail] = useState("John@example.com");
   const [password, setPassword] = useState("test123");
 
   function handleLogin(e) {

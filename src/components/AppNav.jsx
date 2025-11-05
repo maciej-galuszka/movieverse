@@ -14,7 +14,7 @@ function AppNav() {
         </NavButton>
 
         <NavButton type="transparent" to="/app/wishlist">
-          WISHLIST
+          WATCHLIST
         </NavButton>
       </nav>
       <ProfileDropdown />
