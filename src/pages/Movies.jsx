@@ -3,11 +3,14 @@ import MovieItem from "../components/MovieItem";
 import imageExists from "../utils/imageExists";
 import MovieLoader from "../components/MovieLoader";
 import MovieDetails from "../components/MovieDetails";
+import MovieResults from "../components/MovieResults";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState({});
   const [query, setQuery] = useState("");
+  const [error, setError] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
   const [isLoadingMovie, setIsLoadingMovie] = useState(false);
   const [isLoadingDetails, setIsLoadingDetails] = useState(false);
 
@@ -16,22 +19,26 @@ function Movies() {
 
   async function handleSearchMovie(e) {
     e.preventDefault();
+    setHasSearched(true);
     setIsLoadingMovie(true);
     try {
       const res = await fetch(`${URL}&s=${query}`);
       if (!res.ok) throw new Error("Error");
 
       const data = await res.json();
+
+      if (!data.Search) throw new Error("Movie not found!");
+
       const validMovies = (
         await Promise.all(
           data.Search.map(async (movie) => ((await imageExists(movie.Poster)) ? movie : null))
         )
       ).filter(Boolean);
 
-      setSelectedMovie(validMovies[0]);
+      handleSelectMovie(validMovies[0]);
       setMovies(validMovies);
     } catch (err) {
-      console.error(err.message);
+      setError(err.message);
     } finally {
       setIsLoadingMovie(false);
     }
@@ -71,28 +78,25 @@ function Movies() {
         />
       </form>
 
-      <>
-        <ul className="bg-lightGray min-h-full divide-y divide-gray-600 overflow-hidden rounded-lg">
-          {!isLoadingMovie ? (
-            movies.map((movie) => (
-              <MovieItem
-                onClick={() => handleSelectMovie(movie)}
-                movie={movie}
-                key={movie.imdbID}
-              />
-            ))
-          ) : (
-            <MovieLoader />
-          )}
-        </ul>
-        <div className="bg-lightGray min-h-full overflow-hidden rounded-lg">
-          {isLoadingMovie || isLoadingDetails ? (
-            <MovieLoader />
-          ) : (
-            <MovieDetails movie={selectedMovie} />
-          )}
-        </div>
-      </>
+      {hasSearched && (
+        <>
+          <ul className="bg-lightGray min-h-full divide-y divide-gray-600 overflow-hidden rounded-lg">
+            <MovieResults
+              movies={movies}
+              isLoading={isLoadingMovie}
+              error={error}
+              onSelectMovie={handleSelectMovie}
+            />
+          </ul>
+          <div className="bg-lightGray min-h-full overflow-hidden rounded-lg">
+            {isLoadingMovie || isLoadingDetails ? (
+              <MovieLoader />
+            ) : (
+              <MovieDetails movie={selectedMovie} />
+            )}
+          </div>
+        </>
+      )}
     </section>
   );
 }

@@ -3,7 +3,7 @@ import { IoCalendarClearSharp } from "react-icons/io5";
 function MovieItem({ movie, onClick }) {
   return (
     <li
-      className="hover:bg-lightGrayHover flex items-center gap-10 px-8 py-6 hover:cursor-pointer"
+      className="hover:bg-lightGrayHover flex items-center gap-10 px-8 py-6 transition-colors duration-200 hover:cursor-pointer"
       onClick={onClick}
     >
       <img className="w-16" src={movie.Poster} alt={`${movie.Title} cover photo`} />

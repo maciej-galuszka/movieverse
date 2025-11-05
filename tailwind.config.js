@@ -10,8 +10,11 @@ export default {
       },
       colors: {
         dark: "#212529",
+        darkHover: "#1a1f24",
         lightGray: "#434a52",
         lightGrayHover: "#3F464E",
+        grayLight: "#adb5bd",
+        grayDark: "#495057",
         violet: {
           550: "#844FF0",
         },
