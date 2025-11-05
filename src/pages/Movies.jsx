@@ -1,29 +1,60 @@
 import { useState } from "react";
+import MovieItem from "../components/MovieItem";
+import imageExists from "../utils/imageExists";
+import MovieLoader from "../components/MovieLoader";
+import MovieDetails from "../components/MovieDetails";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState({});
   const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const KEY = "e82c1ba1";
-  const URL = `https://www.omdbapi.com/?apikey=${KEY}&s=${query}`;
+  const URL = `https://www.omdbapi.com/?apikey=${KEY}`;
 
   async function handleSearchMovie(e) {
     e.preventDefault();
+    setIsLoading(true);
     try {
-      const res = await fetch(URL);
+      const res = await fetch(`${URL}&s=${query}`);
       if (!res.ok) throw new Error("Error");
 
       const data = await res.json();
-      setMovies(data);
-      console.log(data);
+      const validMovies = (
+        await Promise.all(
+          data.Search.map(async (movie) => ((await imageExists(movie.Poster)) ? movie : null))
+        )
+      ).filter(Boolean);
+
+      setSelectedMovie(validMovies[0]);
+      setMovies(validMovies);
     } catch (err) {
-      console.err(err.message);
+      console.error(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function handleSelectMovie(movie) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${URL}&i=${movie.imdbID}`);
+      if (!res.ok) throw new Error("something went wrong");
+      const movieDetails = await res.json();
+      setSelectedMovie(movieDetails);
+      console.log(movieDetails);
+    } catch (err) {
+      console.error(err.message);
+    } finally {
+      setIsLoading(false);
     }
   }
 
   return (
-    <section className="mx-auto grid h-full grid-cols-2 grid-rows-[auto_1fr] items-start justify-center gap-6 sm:max-w-4xl md:max-w-5xl">
+    <section className="h-min-full md:max-w-5x mx-auto grid min-h-full grid-cols-2 grid-rows-[auto_1fr] items-start justify-center gap-6 pb-10 text-white sm:max-w-4xl">
       <form
-        className="bg-lightGray grid-col-1/-1 col-span-full mt-8 flex flex-col gap-2 rounded-lg border-2 border-violet-500 px-8 py-6 text-white"
+        className="bg-lightGray grid-col-1/-1 pb8 col-span-full mt-8 flex flex-col gap-2 rounded-lg px-8 pb-8 pt-6"
         action=""
         onSubmit={(e) => handleSearchMovie(e)}
       >
@@ -31,14 +62,31 @@ function Movies() {
           Search movies!
         </label>
         <input
-          className="h-8 rounded-md"
+          className="h-8 rounded-md px-4 text-dark"
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
       </form>
-      <div className="bg-lightGray h-full">movies here</div>
-      <div className="bg-lightGray h-full">details here</div>
+
+      <>
+        <ul className="bg-lightGray min-h-full divide-y divide-gray-600 overflow-hidden rounded-lg">
+          {!isLoading ? (
+            movies.map((movie) => (
+              <MovieItem
+                onClick={() => handleSelectMovie(movie)}
+                movie={movie}
+                key={movie.imdbID}
+              />
+            ))
+          ) : (
+            <MovieLoader />
+          )}
+        </ul>
+        <div className="bg-lightGray min-h-full overflow-hidden rounded-lg">
+          {!isLoading ? <MovieDetails movie={selectedMovie} /> : <MovieLoader />}
+        </div>
+      </>
     </section>
   );
 }

@@ -11,6 +11,7 @@ export default {
       colors: {
         dark: "#212529",
         lightGray: "#434a52",
+        lightGrayHover: "#3F464E",
         violet: {
           550: "#844FF0",
         },
