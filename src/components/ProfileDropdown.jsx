@@ -7,7 +7,7 @@ import {
   IoPersonCircleOutline,
 } from "react-icons/io5";
 import { useDispatch } from "react-redux";
-import avatar from "../assets/images/avatar.jpg";
+import avatar from "../assets/images/avatar.png";
 import { NavLink } from "react-router-dom";
 import { logout } from "../features/auth/authSlice";
 
@@ -27,7 +27,7 @@ function ProfileDropdown() {
       <img
         src={avatar}
         alt="John's profile picture"
-        className="hidden w-12 rounded-full border-2 border-violet-500 md:block"
+        className="hidden w-10 rounded-full border-2 border-violet-500 md:block"
       />
       <IoChevronDown
         className={`hidden text-xs text-white transition-transform duration-300 sm:text-base md:block ${isToggled ? "rotate-180" : ""} `}
@@ -66,7 +66,7 @@ function ProfileDropdown() {
               <NavLink
                 to="/"
                 className="flex items-center gap-4 sm:gap-6"
-                onClick={dispatch(logout)}
+                onClick={() => dispatch(logout())}
               >
                 <IoLogOut className="text-base sm:text-xl" />
                 Logout

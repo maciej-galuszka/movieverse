@@ -8,14 +8,15 @@ function Movies() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState({});
   const [query, setQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingMovie, setIsLoadingMovie] = useState(false);
+  const [isLoadingDetails, setIsLoadingDetails] = useState(false);
 
   const KEY = "e82c1ba1";
   const URL = `https://www.omdbapi.com/?apikey=${KEY}`;
 
   async function handleSearchMovie(e) {
     e.preventDefault();
-    setIsLoading(true);
+    setIsLoadingMovie(true);
     try {
       const res = await fetch(`${URL}&s=${query}`);
       if (!res.ok) throw new Error("Error");
@@ -32,13 +33,14 @@ function Movies() {
     } catch (err) {
       console.error(err.message);
     } finally {
-      setIsLoading(false);
+      setIsLoadingMovie(false);
     }
   }
 
   async function handleSelectMovie(movie) {
+    if (movie.imdbID === selectedMovie.imdbID) return;
+    setIsLoadingDetails(true);
     try {
-      setIsLoading(true);
       const res = await fetch(`${URL}&i=${movie.imdbID}`);
       if (!res.ok) throw new Error("something went wrong");
       const movieDetails = await res.json();
@@ -47,7 +49,7 @@ function Movies() {
     } catch (err) {
       console.error(err.message);
     } finally {
-      setIsLoading(false);
+      setIsLoadingDetails(false);
     }
   }
 
@@ -71,7 +73,7 @@ function Movies() {
 
       <>
         <ul className="bg-lightGray min-h-full divide-y divide-gray-600 overflow-hidden rounded-lg">
-          {!isLoading ? (
+          {!isLoadingMovie ? (
             movies.map((movie) => (
               <MovieItem
                 onClick={() => handleSelectMovie(movie)}
@@ -84,7 +86,11 @@ function Movies() {
           )}
         </ul>
         <div className="bg-lightGray min-h-full overflow-hidden rounded-lg">
-          {!isLoading ? <MovieDetails movie={selectedMovie} /> : <MovieLoader />}
+          {isLoadingMovie || isLoadingDetails ? (
+            <MovieLoader />
+          ) : (
+            <MovieDetails movie={selectedMovie} />
+          )}
         </div>
       </>
     </section>
