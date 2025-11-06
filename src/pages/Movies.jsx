@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MovieItem from "../components/MovieItem";
+// IoSearch
 import imageExists from "../utils/imageExists";
 import MovieLoader from "../components/MovieLoader";
 import MovieDetails from "../components/MovieDetails";
@@ -63,22 +63,23 @@ function Movies() {
   return (
     <section className="h-min-full md:max-w-5x mx-auto grid min-h-full grid-cols-2 grid-rows-[auto_1fr] items-start justify-center gap-6 pb-10 text-white sm:max-w-4xl">
       <form
-        className="bg-lightGray grid-col-1/-1 pb8 col-span-full mt-8 flex flex-col gap-2 rounded-lg px-8 pb-8 pt-6"
+        className="bg-lightGray col-span-full mt-8 flex flex-col gap-2 rounded-lg px-8 py-8"
         action=""
         onSubmit={(e) => handleSearchMovie(e)}
       >
-        <label className="text-lg" htmlFor="">
+        {/* <label className="text-lg" htmlFor="">
           Search movies!
-        </label>
+        </label> */}
         <input
-          className="h-8 rounded-md px-4 text-dark"
+          className="h-12 rounded-md px-4 text-dark"
           type="text"
           value={query}
+          placeholder="Find your favorite movie!"
           onChange={(e) => setQuery(e.target.value)}
         />
       </form>
 
-      {hasSearched && (
+      {hasSearched ? (
         <>
           <ul className="bg-lightGray min-h-full divide-y divide-gray-600 overflow-hidden rounded-lg">
             <MovieResults
@@ -96,6 +97,10 @@ function Movies() {
             )}
           </div>
         </>
+      ) : (
+        <h1 className="col-span-full mt-20 text-center text-5xl font-medium tracking-wide">
+          Looking for a movie? Start here!
+        </h1>
       )}
     </section>
   );

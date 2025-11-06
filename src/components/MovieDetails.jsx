@@ -1,9 +1,17 @@
+import { useState } from "react";
 import { IoStar } from "react-icons/io5";
+import { useSelector } from "react-redux";
 import Rating from "./Rating";
-// import { NavLink } from "react-router-dom";
+import NavButton from "./NavButton";
+import Button from "./Button";
 
 function MovieDetails({ movie }) {
-  console.log(movie);
+  const [showRatingForm, setShowRatingForm] = useState(false);
+  const watched = useSelector((state) => state.movies.watched);
+  const userRating = watched.find((watched) => watched.imdbID === movie.imdbID)?.rating;
+
+  function handleAddToWatchlist() {}
+
   if (!movie.Title) return null;
   return (
     <div className="grid-row-[auto_auto] grid">
@@ -25,10 +33,26 @@ function MovieDetails({ movie }) {
               <span className="text-gray-300">{movie.imdbRating} IMDB rating</span>
             </li>
           </ul>
-          {/* <NavLink className="mt-4 font-medium">Details</NavLink> */}
         </div>
       </div>
-      <Rating />
+
+      <div className="space-y-6 p-6">
+        <p className="italic">{movie.Plot}</p>
+
+        {userRating ? (
+          <div className="mt-6 flex items-center gap-2 rounded-lg bg-[#3c434a] px-6 py-4">
+            <span className="font-medium">You rated this movie with {userRating}</span>{" "}
+            <IoStar className="text-yellow-300" />
+          </div>
+        ) : showRatingForm ? (
+          <Rating movie={movie} onSetShowRatingForm={setShowRatingForm} />
+        ) : (
+          <div className="flex justify-between">
+            <Button onClick={() => setShowRatingForm(true)}>Add to watched</Button>
+            <Button onClick={handleAddToWatchlist}>Add to watchlist</Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

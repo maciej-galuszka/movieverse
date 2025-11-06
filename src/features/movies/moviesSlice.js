@@ -12,7 +12,7 @@ const moviesSlice = createSlice({
     addToWatched(state, action) {
       state.watched.push(action.payload);
     },
-    addToWishlist(state, action) {
+    addToWatchlist(state, action) {
       state.wishlist.push(action.payload);
     },
   },
