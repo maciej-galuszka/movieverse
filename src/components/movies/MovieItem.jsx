@@ -1,10 +1,10 @@
 import { IoCalendarClearSharp } from "react-icons/io5";
 
-function MovieItem({ movie, onClick }) {
+function MovieItem({ movie, onSetSelectedID }) {
   return (
     <li
       className="hover:bg-lightGrayHover flex items-center gap-10 px-8 py-6 transition-colors duration-200 hover:cursor-pointer"
-      onClick={onClick}
+      onClick={() => onSetSelectedID(movie.imdbID)}
     >
       <img className="w-16" src={movie.Poster} alt={`${movie.Title} cover photo`} />
       <div className="space-y-2">

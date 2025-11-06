@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login, resetError } from "../auth/authSlice.js";
-import Button from "../../components/Button";
+import { login, resetError } from "../../features/auth/authSlice.js";
+import Button from "../buttons/Button.jsx";
 
 function LoginForm() {
   const navigate = useNavigate();

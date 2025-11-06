@@ -1,5 +1,5 @@
 import ProfileDropdown from "./ProfileDropdown";
-import NavButton from "./NavButton";
+import NavButton from "../NavButton";
 
 function AppNav() {
   return (

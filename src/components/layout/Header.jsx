@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Logo from "@/components/Logo";
 import AppNav from "./AppNav";
-import NavButton from "./NavButton";
-import HeaderNav from "./HeaderNav";
+import NavButton from "../NavButton";
+import HeaderNav from "../HeaderNav";
 
 function Header() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);

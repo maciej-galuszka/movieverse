@@ -1,5 +1,5 @@
-import Button from "../components/Button";
-import LoginForm from "../features/auth/LoginForm";
+import Button from "../components/buttons/Button";
+import LoginForm from "../components/auth/LoginForm";
 
 function Login() {
   return <LoginForm />;
