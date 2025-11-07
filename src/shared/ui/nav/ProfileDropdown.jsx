@@ -18,7 +18,7 @@ function ProfileDropdown() {
       <AvatarButton isToggled={isToggled} />
       {isToggled && (
         <div
-          className="absolute -bottom-[11.6rem] right-0 w-48 overflow-hidden rounded-md bg-white sm:-bottom-[15.1rem] md:-bottom-[14.6rem]"
+          className="absolute -bottom-[11.6rem] right-0 z-50 w-48 overflow-hidden rounded-md border border-violet-500 bg-white sm:-bottom-[15.1rem] md:-bottom-[14.6rem]"
           onMouseLeave={handleToggleDropdown}
         >
           <DropdownHeader />

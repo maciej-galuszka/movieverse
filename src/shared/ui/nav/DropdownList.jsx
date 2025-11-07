@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { IoPerson, IoSettingsSharp, IoLogOut } from "react-icons/io5";
-import { logout } from "@/features/auth/authSlice";
 import { NavLink } from "react-router-dom";
+import { logout } from "@/features/auth/authSlice";
 
 function DropdownList() {
   const dispatch = useDispatch();

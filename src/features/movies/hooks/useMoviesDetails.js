@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { selectRating } from "../moviesSlice";
 
 const KEY = "e82c1ba1";
 const URL = `https://www.omdbapi.com/?apikey=${KEY}`;
@@ -10,8 +11,7 @@ export function useMoviesDetails(selectedID) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const watched = useSelector((state) => state.movies.watched);
-  const userRating = watched.find((watched) => watched.imdbID === selectedID)?.rating;
+  const userRating = useSelector(selectRating(movie));
 
   useEffect(() => {
     setMovie(null);

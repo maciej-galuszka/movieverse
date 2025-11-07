@@ -3,8 +3,7 @@ import { IoSearch } from "react-icons/io5";
 function MoviesSearchForm({ onSearchMovie, query, onSetQuery }) {
   return (
     <form
-      className="bg-lightGray col-span-full mt-8 flex flex-col gap-2 rounded-lg px-8 py-8"
-      action=""
+      className="col-span-full mt-8 flex flex-col gap-2 rounded-lg bg-lightGray p-4 sm:p-6 md:mt-10 md:p-8"
       onSubmit={(e) => {
         e.preventDefault();
         onSearchMovie();
@@ -12,7 +11,7 @@ function MoviesSearchForm({ onSearchMovie, query, onSetQuery }) {
     >
       <div className="relative">
         <input
-          className="h-12 w-full rounded-md px-4 text-dark"
+          className="h-8 w-full rounded-md px-4 text-sm text-dark sm:h-12 sm:text-base"
           type="text"
           value={query}
           aria-label="Search movies"

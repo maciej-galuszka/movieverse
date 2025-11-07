@@ -1,9 +1,13 @@
 import { IoStar } from "react-icons/io5";
 import { useMoviesDetails } from "../hooks/useMoviesDetails";
-import MovieRating from "./MovieRating";
+import { NavLink } from "react-router-dom";
+import { IoReaderOutline } from "react-icons/io5";
 import Button from "@/shared/ui/buttons/Button";
+import MovieRatingForm from "./MovieRatingForm";
 import MovieLoader from "./MovieLoader";
 import MovieError from "./MovieError";
+import MovieUserRating from "./MovieUserRating";
+import DesktopActions from "./DesktopActions";
 
 function MovieDetails({ selectedID, searchError }) {
   const { movie, error, isLoading, showRatingForm, setShowRatingForm, userRating } =
@@ -16,41 +20,52 @@ function MovieDetails({ selectedID, searchError }) {
   return (
     <div className="grid-row-[auto_auto] grid">
       <div className="flex bg-darkerLightGray">
-        <img className="w-36" src={movie.Poster} alt={`${movie.Title} cover photo`} />
-        <div className="flex w-full flex-col px-10 py-8">
-          <h2 className={`${movie.Title?.length > 15 ? "text-lg" : "text-2xl"} font-medium`}>
+        <img
+          className="w-28 md:w-32 lg:w-36"
+          src={movie.Poster}
+          alt={`${movie.Title} cover photo`}
+        />
+        <div className="flex w-full flex-col px-2 py-4 pt-6 md:px-6 md:pt-8 lg:px-10">
+          <h2
+            className={`${movie.Title.length > 15 ? "text-sm md:text-base lg:text-lg" : "text-base md:text-xl lg:text-2xl"} font-medium`}
+          >
             {movie.Title}
           </h2>
-          <ul className="text-sm">
-            <li className="text-xs text-gray-300">
+          <ul className="text-xs md:text-sm">
+            <li className="text-xxs text-gray-300 md:text-xs">
               <span className="mr-0.5">{movie.Type} •</span>
               <span className="mr-0.5"> {movie.Released} •</span>
               <span> {movie.Runtime}</span>
             </li>
-            <li className="mt-6 text-gray-300">{movie.Genre}</li>
+            <li className="mt-4 text-xxs text-gray-300 lg:mt-6 lg:text-xs">{movie.Genre}</li>
             <li className="mt-2 flex w-full items-center gap-2">
-              <IoStar className="text-lg text-yellow-300" />{" "}
-              <span className="text-gray-300">{movie.imdbRating} IMDB rating</span>
+              <IoStar className="text-base text-yellow-300 md:text-lg" />
+              <span className="text-gray-300">
+                {movie.imdbRating} <span>IMDB rating</span>
+              </span>
+            </li>
+            <li className="flex">
+              <NavLink
+                className="mt-2 flex items-center gap-2 text-gray-300 transition-colors duration-300 hover:text-gray-100"
+                to="/app/movies"
+              >
+                <IoReaderOutline className="text-base md:text-lg" />
+                <span className="font-medium">Details</span>
+              </NavLink>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="space-y-6 p-6">
-        <p className="italic">{movie.Plot}</p>
+      <div className="px-6 py-6 lg:px-10">
+        <p className="mb-6 text-sm italic md:text-base">{movie.Plot}</p>
 
         {userRating ? (
-          <div className="mt-6 flex items-center gap-2 rounded-lg bg-[#3c434a] px-6 py-4">
-            <span className="font-medium">You rated this movie with {userRating}</span>{" "}
-            <IoStar className="text-yellow-300" />
-          </div>
+          <MovieUserRating userRating={userRating} />
         ) : showRatingForm ? (
-          <MovieRating movie={movie} onShowForm={setShowRatingForm} />
+          <MovieRatingForm movie={movie} onShowForm={setShowRatingForm} />
         ) : (
-          <div className="flex justify-between">
-            <Button onClick={() => setShowRatingForm(true)}>Add to watched</Button>
-            <Button onClick={() => {}}>Add to watchlist</Button>
-          </div>
+          <DesktopActions onShowForm={setShowRatingForm} />
         )}
       </div>
     </div>
@@ -58,3 +73,10 @@ function MovieDetails({ selectedID, searchError }) {
 }
 
 export default MovieDetails;
+
+{
+  /* <div className="flex items-center gap-2 rounded-lg bg-[#3c434a] px-6 py-4">
+            <span className="font-medium">You rated this movie with {userRating}</span>{" "}
+            <IoStar className="text-yellow-300" />
+          </div> */
+}

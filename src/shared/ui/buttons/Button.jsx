@@ -1,13 +1,19 @@
-function Button({ type = "primary", htmlType = "button", onClick = () => {}, children }) {
+function Button({
+  type = "primary",
+  htmlType = "button",
+  onClick = () => {},
+  disabled = false,
+  children,
+}) {
   const base =
-    "font-500 tracking-wide text-xs sm:text-base sm:px-5 sm:py-2 px-2 py-1 font-medium text-white transition-colors duration-200";
+    "font-500 tracking-wide text-xs sm:text-base sm:px-3 md:px-5 sm:py-2 px-2 py-1 font-medium text-white transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-50";
 
   const styles = {
     transparent: base + " hover:text-gray-200",
     primary: base + " sm:rounded-lg rounded-md bg-violet-500 hover:bg-violet-550",
   };
   return (
-    <button type={htmlType} onClick={onClick} className={styles[type]}>
+    <button type={htmlType} disabled={disabled} onClick={onClick} className={styles[type]}>
       {children}
     </button>
   );
