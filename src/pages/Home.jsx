@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import NavButton from "../components/buttons/NavButton";
-import homeBg from "../assets/images/home-bg.jpg";
+import NavButton from "@/shared/ui/buttons/NavButton";
+import homeBg from "@/shared/assets/images/home-bg.jpg";
 
 function Home() {
   return (

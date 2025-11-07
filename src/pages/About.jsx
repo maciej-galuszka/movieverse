@@ -1,4 +1,4 @@
-import image from "@/assets/images/About.jpg";
+import image from "@/shared/assets/images/About.jpg";
 
 function About() {
   return (
@@ -6,7 +6,7 @@ function About() {
       className="relative grid h-full place-items-center overflow-hidden bg-cover bg-top"
       style={{ backgroundImage: `url(${image})` }}
     >
-      <div className="bg-lightGray relative z-10 max-w-2xl rounded-lg border-2 border-violet-500 px-20 py-16 text-center">
+      <div className="relative z-10 max-w-2xl rounded-lg border-2 border-violet-500 bg-lightGray px-20 py-16 text-center">
         <h1 className="text-5xl font-bold text-white">Your Movie Journey Starts Here</h1>
         <p className="text-md mt-8 text-gray-300">
           MovieVerse helps you keep track of every film you’ve watched and loved. Search for movies

@@ -1,16 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
-import AppLayout from "@/components/AppLayout.jsx";
+import AppLayout from "@/app/AppLayout";
 import Home from "@/pages/Home";
 import Pricing from "@/pages/Pricing";
 import About from "@/pages/About";
 import Login from "@/pages/Login";
-import Dashboard from "../pages/Dashboard";
+import Dashboard from "@/pages/Dashboard";
+import Profile from "@/pages/Profile";
+import Watched from "@/pages/Watched";
+import Movies from "@/pages/Movies";
+import Watchlist from "@/pages/Watchlist";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
-import Profile from "../pages/Profile";
-import Watched from "../pages/Watched";
-import Movies from "../pages/Movies";
-import Wishlist from "../pages/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -52,8 +52,8 @@ const router = createBrowserRouter([
             element: <Watched />,
           },
           {
-            path: "wishlist",
-            element: <Wishlist />,
+            path: "watchlist",
+            element: <Watchlist />,
           },
           {
             path: "profile",

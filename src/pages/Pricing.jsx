@@ -1,17 +1,16 @@
 import { IoCheckmark } from "react-icons/io5";
-import Button from "../components/Button";
-import NavButton from "../components/NavButton";
+import NavButton from "@/shared/ui/buttons/NavButton";
 
 function Pricing() {
   return (
     <section className="mx-auto grid min-h-full max-w-6xl grid-cols-1 items-center gap-12 whitespace-nowrap text-center xl:h-full xl:grid-cols-3 xl:items-start">
-      <div className="bg-lightGray md:w-6/7 xs:w-[20rem] xs:px-10 xs:py-12 mx-auto mt-12 w-[18rem] rounded-xl border-2 border-violet-500 px-8 py-10 text-white transition-transform duration-300 hover:scale-105 xl:mx-0">
+      <div className="md:w-6/7 mx-auto mt-12 w-[18rem] rounded-xl border-2 border-violet-500 bg-lightGray px-8 py-10 text-white transition-transform duration-300 hover:scale-105 xs:w-[20rem] xs:px-10 xs:py-12 xl:mx-0">
         <h1 className="text-2xl font-medium">BASIC</h1>
         <p className="mt-6 text-6xl">
           <span className="text-2xl">$</span>0
         </p>
         <p className="mt-4 text-xs">per month</p>
-        <ul className="xs:text-sm my-12 space-y-4 text-xs">
+        <ul className="my-12 space-y-4 text-xs xs:text-sm">
           <li className="flex items-center">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" /> <span>Search movies</span>
           </li>
@@ -30,13 +29,13 @@ function Pricing() {
           START FREE
         </NavButton>
       </div>
-      <div className="bg-lightGray md:w-6/7 xs:w-[20rem] xs:px-10 xs:py-12 mx-auto mt-12 w-[18rem] rounded-xl border-2 border-violet-500 px-8 py-10 text-white transition-transform duration-300 hover:scale-105 xl:mx-0">
+      <div className="md:w-6/7 mx-auto mt-12 w-[18rem] rounded-xl border-2 border-violet-500 bg-lightGray px-8 py-10 text-white transition-transform duration-300 hover:scale-105 xs:w-[20rem] xs:px-10 xs:py-12 xl:mx-0">
         <h1 className="text-2xl font-medium">PRO</h1>
         <p className="mt-6 text-6xl">
           <span className="text-2xl">$</span>4.99
         </p>
         <p className="mt-4 text-xs">per month</p>
-        <ul className="xs:text-sm my-12 space-y-4 text-xs">
+        <ul className="my-12 space-y-4 text-xs xs:text-sm">
           <li className="flex items-center">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" /> <span>Everything in Basic</span>
           </li>
@@ -56,24 +55,24 @@ function Pricing() {
           UPGRADE TO PRO
         </NavButton>
       </div>
-      <div className="bg-lightGray md:w-6/7 xs:w-[20rem] xs:px-10 xs:py-12 mx-auto mb-12 mt-12 w-[18rem] rounded-xl border-2 border-violet-500 px-8 py-10 text-white transition-transform duration-300 hover:scale-105 xl:mx-0 xl:mb-0">
+      <div className="md:w-6/7 mx-auto mb-12 mt-12 w-[18rem] rounded-xl border-2 border-violet-500 bg-lightGray px-8 py-10 text-white transition-transform duration-300 hover:scale-105 xs:w-[20rem] xs:px-10 xs:py-12 xl:mx-0 xl:mb-0">
         <h1 className="text-2xl font-medium">ULTIMATE</h1>
         <p className="mt-6 text-6xl">
           <span className="text-2xl">$</span>9.99
         </p>
         <p className="mt-4 text-xs">per month</p>
         <ul className="my-12 space-y-4">
-          <li className="xs:text-sm flex items-center text-xs">
+          <li className="flex items-center text-xs xs:text-sm">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" /> <span>Everything in Pro</span>
           </li>
-          <li className="xs:text-sm flex items-center text-xs">
+          <li className="flex items-center text-xs xs:text-sm">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" />
             <span>AI-based recommendations</span>
           </li>
-          <li className="xs:text-sm flex items-center text-xs">
+          <li className="flex items-center text-xs xs:text-sm">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" /> <span>Watch history analytics</span>
           </li>
-          <li className="xs:text-sm flex items-center text-xs">
+          <li className="flex items-center text-xs xs:text-sm">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" />{" "}
             <span>Sync your data across devices</span>
           </li>

@@ -1,5 +1,5 @@
 import { IoChevronDown, IoPersonCircleOutline } from "react-icons/io5";
-import avatar from "../assets/images/avatar.png";
+import avatar from "@/shared/assets/images/avatar.png";
 
 function AvatarButton({ isToggled }) {
   return (
@@ -12,7 +12,7 @@ function AvatarButton({ isToggled }) {
       <IoChevronDown
         className={`hidden text-xs text-white transition-transform duration-300 sm:text-base md:block ${isToggled ? "rotate-180" : ""} `}
       />
-      <IoPersonCircleOutline className="xs:text-xl block text-lg text-white sm:text-3xl md:hidden" />
+      <IoPersonCircleOutline className="block text-lg text-white xs:text-xl sm:text-3xl md:hidden" />
     </>
   );
 }

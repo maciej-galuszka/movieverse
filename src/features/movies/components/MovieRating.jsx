@@ -1,16 +1,16 @@
 import { IoAddOutline } from "react-icons/io5";
-import { useMovieRating } from "../../features/rating/useRating";
-import Button from "../buttons/Button";
-import { Stars } from "../../features/rating/Stars";
+import { useMovieRating } from "@/features/movies/hooks/useMovieRating";
+import { Stars } from "@/features/movies/components/Stars";
+import Button from "@/shared/ui/buttons/Button";
 
-function MovieRating({ movie, onCloseForm }) {
+function MovieRating({ movie, onShowForm }) {
   const { rating, setRating, comment, setComment, handleAddToWatched } = useMovieRating(
     movie,
-    onCloseForm
+    onShowForm
   );
 
   return (
-    <div className="mt-6 space-y-4 rounded-lg bg-[#3c434a] px-6 py-4">
+    <div className="mt-6 space-y-4 rounded-lg bg-darkerLightGray px-6 py-4">
       <form className="flex flex-col gap-3" onSubmit={handleAddToWatched}>
         <label className="mb-1 text-sm">What are your thoughts on this movie?</label>
         <textarea

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { IoPerson, IoSettingsSharp, IoLogOut } from "react-icons/io5";
-import { logout } from "../../features/auth/authSlice";
+import { logout } from "@/features/auth/authSlice";
 import { NavLink } from "react-router-dom";
 
 function DropdownList() {
@@ -9,6 +9,7 @@ function DropdownList() {
   function handleLogout() {
     dispatch(logout());
   }
+
   return (
     <ul className="space-y-1 text-violet-700">
       <li className="border-l-2 border-transparent px-5 py-2.5 text-xs hover:border-l-2 hover:border-l-violet-700 hover:bg-violet-200 sm:py-3 sm:text-base">

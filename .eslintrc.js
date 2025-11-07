@@ -13,13 +13,17 @@ export default {
     ecmaVersion: "latest",
     sourceType: "module",
   },
+  plugins: ["import"],
+  rules: {
+    "react/react-in-jsx-scope": "off",
+    "linebreak-style": "off",
+    "import/no-unresolved": "error",
+    "import/no-duplicates": "error",
+    "import/order": "warn",
+  },
   settings: {
     react: {
       version: "detect",
     },
-  },
-  rules: {
-    "react/react-in-jsx-scope": "off",
-    "linebreak-style": "off",
   },
 };

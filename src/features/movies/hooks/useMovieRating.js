@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToWatched } from "../movies/moviesSlice";
+import { addToWatched } from "../moviesSlice";
 
-export function useMovieRating(movie, onCloseForm) {
+export function useMovieRating(movie, onShowForm) {
   const dispatch = useDispatch();
   const [rating, setRating] = useState(null);
   const [comment, setComment] = useState("");
@@ -13,7 +13,7 @@ export function useMovieRating(movie, onCloseForm) {
     dispatch(addToWatched({ ...movie, rating, comment }));
     setComment("");
     setRating(null);
-    onCloseForm(false);
+    onShowForm(false);
   };
 
   return {

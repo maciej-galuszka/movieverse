@@ -1,5 +1,5 @@
+import NavButton from "@/shared/ui/buttons/NavButton";
 import ProfileDropdown from "./ProfileDropdown";
-import NavButton from "../NavButton";
 
 function AppNav() {
   return (
