@@ -3,7 +3,7 @@ import AppLayout from "@/app/AppLayout";
 import Home from "@/pages/Home";
 import Pricing from "@/pages/Pricing";
 import About from "@/pages/About";
-import Login from "@/pages/Login";
+import MoviePage from "@/pages/MoviePage";
 import Dashboard from "@/pages/Dashboard";
 import Profile from "@/pages/Profile";
 import Watched from "@/pages/Watched";
@@ -46,6 +46,10 @@ const router = createHashRouter([
           {
             path: "movies",
             element: <Movies />,
+          },
+          {
+            path: "movies/:imdbID",
+            element: <MoviePage />,
           },
           {
             path: "watched",

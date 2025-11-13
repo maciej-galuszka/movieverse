@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectOnWatchlist, selectRating } from "../moviesSlice";
 import MovieRatingForm from "./MovieRatingForm";
-import MovieListStatusMobile from "./MovieListStatusMobile";
+import MovieStatusBadgeMobile from "./MovieStatusBadgeMobile";
 import MobileActions from "./MobileActions";
 
 function MovieItem({ movie, onSetSelectedID }) {
@@ -32,7 +32,7 @@ function MovieItem({ movie, onSetSelectedID }) {
 
           <NavLink
             className="flex items-center gap-2 text-xs text-gray-300 transition-colors duration-300 hover:text-gray-100 sm:hidden"
-            to="/app/movies"
+            to={`/app/movies/${movie.imdbID}`}
           >
             <IoReaderOutline />
             <span className="font-medium">DETAILS</span>
@@ -40,7 +40,7 @@ function MovieItem({ movie, onSetSelectedID }) {
 
           {userRating || isOnWatchList ? (
             <div className="mt-auto sm:hidden">
-              <MovieListStatusMobile
+              <MovieStatusBadgeMobile
                 userRating={userRating}
                 list={`${userRating ? "watched" : "watchlist"}`}
               />

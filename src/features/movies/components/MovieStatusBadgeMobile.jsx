@@ -1,6 +1,6 @@
 import { IoStar, IoBookmark } from "react-icons/io5";
 
-function MovieListStatusMobile({ userRating, list }) {
+function MovieStatusBadgeMobile({ userRating, list }) {
   if (list === "watchlist") {
     return (
       <div className="flex w-44 items-center gap-2 rounded-md bg-darkerLightGray px-4 py-3">
@@ -17,4 +17,4 @@ function MovieListStatusMobile({ userRating, list }) {
   );
 }
 
-export default MovieListStatusMobile;
+export default MovieStatusBadgeMobile;

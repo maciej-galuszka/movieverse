@@ -11,7 +11,7 @@ export function Stars({ rating, onSetRating }) {
 
   return (
     <div className="flex items-center">
-      <div className="flex cursor-pointer gap-1 sm:w-full" onMouseLeave={handleMouseLeave}>
+      <div className="flex cursor-pointer gap-1" onMouseLeave={handleMouseLeave}>
         {[...Array(10)].map((_, n) => {
           const StarIcon = isFilled(n) ? IoStar : IoStarOutline;
           return (
@@ -24,7 +24,7 @@ export function Stars({ rating, onSetRating }) {
           );
         })}
       </div>
-      <span className="mx-2 text-lg text-yellow-300 sm:text-xl">
+      <span className="ml-4 mr-2 text-lg text-yellow-300 sm:text-xl">
         {hoverRating > 0 || rating ? hoverRating || rating : <span className="invisible">10</span>}
       </span>
     </div>

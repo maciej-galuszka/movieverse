@@ -7,9 +7,8 @@ import { selectOnWatchlist } from "../moviesSlice";
 import MovieRatingForm from "./MovieRatingForm";
 import MovieLoader from "./MovieLoader";
 import MovieError from "./MovieError";
-import MovieUserRating from "./MovieListStatus";
 import DesktopActions from "./DesktopActions";
-import MovieListStatus from "./MovieListStatus";
+import MovieStatusBadge from "./MovieStatusBadge";
 
 function MovieDetails({ selectedID, searchError }) {
   const { movie, error, isLoading, showRatingForm, setShowRatingForm, userRating } =
@@ -50,7 +49,7 @@ function MovieDetails({ selectedID, searchError }) {
             <li className="flex">
               <NavLink
                 className="mt-2 flex items-center gap-2 text-gray-300 transition-colors duration-300 hover:text-gray-100"
-                to="/app/movies"
+                to={`/app/movies/${movie.imdbID}`}
               >
                 <IoReaderOutline className="text-base md:text-lg" />
                 <span className="font-medium">Details</span>
@@ -64,7 +63,7 @@ function MovieDetails({ selectedID, searchError }) {
         <p className="mb-6 text-sm italic md:text-base">{movie.Plot}</p>
 
         {userRating || isOnWatchlist ? (
-          <MovieListStatus
+          <MovieStatusBadge
             userRating={userRating}
             list={`${userRating ? "watched" : "watchlist"}`}
           />

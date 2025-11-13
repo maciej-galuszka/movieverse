@@ -11,7 +11,7 @@ function MovieRatingForm({ movie, onShowForm }) {
   );
 
   return (
-    <div className="w-auto space-y-4 rounded-lg bg-darkerLightGray px-4 py-4 sm:w-full lg:px-6">
+    <div className="space-y-4 rounded-lg bg-darkerLightGray px-4 py-4 sm:w-full lg:px-6">
       <form className="relative flex flex-col gap-3" onSubmit={handleAddToWatched}>
         <label className="mb-1 mr-2 text-xs md:text-base">
           What are your thoughts on this movie?

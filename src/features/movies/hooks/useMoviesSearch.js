@@ -1,13 +1,13 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import imageExists from "@/shared/utils/imageExists";
 
 const KEY = "e82c1ba1";
 const URL = `https://www.omdbapi.com/?apikey=${KEY}`;
 
-export function useMoviesSearch() {
+export function useMoviesSearch(initialQuery) {
   const [movies, setMovies] = useState(null);
   const [selectedID, setSelectedID] = useState(null);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const controllerRef = useRef(null);
@@ -52,6 +52,13 @@ export function useMoviesSearch() {
       setIsLoading(false);
     }
   }
+
+  useEffect(() => {
+    if (initialQuery && movies === null && !error) {
+      handleSearchMovie();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return {
     movies,

@@ -5,7 +5,7 @@ import { selectRating } from "../moviesSlice";
 const KEY = "e82c1ba1";
 const URL = `https://www.omdbapi.com/?apikey=${KEY}`;
 
-export function useMoviesDetails(selectedID) {
+export function useMoviesDetails(selectedID, plot = "short") {
   const [movie, setMovie] = useState(null);
   const [showRatingForm, setShowRatingForm] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +30,9 @@ export function useMoviesDetails(selectedID) {
 
     (async () => {
       try {
-        const res = await fetch(`${URL}&i=${selectedID}`, { signal });
+        const res = await fetch(`${URL}&i=${selectedID}${plot === "full" ? "&plot=full" : ""}`, {
+          signal,
+        });
         if (!res.ok) throw new Error("Network error");
         const data = await res.json();
 
@@ -48,7 +50,7 @@ export function useMoviesDetails(selectedID) {
     })();
 
     return () => controller.abort();
-  }, [selectedID]);
+  }, [selectedID, plot]);
 
   return { movie, error, isLoading, showRatingForm, setShowRatingForm, userRating };
 }
