@@ -1,4 +1,3 @@
-// import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { IoStar } from "react-icons/io5";
 import { AiFillLike } from "react-icons/ai";
