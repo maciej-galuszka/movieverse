@@ -2,14 +2,15 @@ import { IoCalendarClearSharp, IoReaderOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectRating } from "../moviesSlice";
+import { selectOnWatchlist, selectRating } from "../moviesSlice";
 import MovieRatingForm from "./MovieRatingForm";
-import MovieUserRating from "./MovieUserRating";
+import MovieListStatusMobile from "./MovieListStatusMobile";
 import MobileActions from "./MobileActions";
 
 function MovieItem({ movie, onSetSelectedID }) {
   const [showForm, setShowForm] = useState(false);
   const userRating = useSelector(selectRating(movie));
+  const isOnWatchList = useSelector(selectOnWatchlist(movie));
 
   return (
     <li
@@ -37,16 +38,19 @@ function MovieItem({ movie, onSetSelectedID }) {
             <span className="font-medium">DETAILS</span>
           </NavLink>
 
-          {!userRating ? (
-            <MobileActions onShowForm={setShowForm} />
-          ) : (
+          {userRating || isOnWatchList ? (
             <div className="mt-auto sm:hidden">
-              <MovieUserRating userRating={userRating} type={"mobile"} />
+              <MovieListStatusMobile
+                userRating={userRating}
+                list={`${userRating ? "watched" : "watchlist"}`}
+              />
             </div>
+          ) : (
+            <MobileActions movie={movie} onShowForm={setShowForm} />
           )}
         </div>
       </div>
-      {showForm && (
+      {showForm && !isOnWatchList && (
         <div className="sm:hidden">
           <MovieRatingForm movie={movie} onShowForm={setShowForm} />
         </div>

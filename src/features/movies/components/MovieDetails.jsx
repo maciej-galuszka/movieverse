@@ -1,17 +1,20 @@
 import { IoStar } from "react-icons/io5";
 import { useMoviesDetails } from "../hooks/useMoviesDetails";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { IoReaderOutline } from "react-icons/io5";
-import Button from "@/shared/ui/buttons/Button";
+import { selectOnWatchlist } from "../moviesSlice";
 import MovieRatingForm from "./MovieRatingForm";
 import MovieLoader from "./MovieLoader";
 import MovieError from "./MovieError";
-import MovieUserRating from "./MovieUserRating";
+import MovieUserRating from "./MovieListStatus";
 import DesktopActions from "./DesktopActions";
+import MovieListStatus from "./MovieListStatus";
 
 function MovieDetails({ selectedID, searchError }) {
   const { movie, error, isLoading, showRatingForm, setShowRatingForm, userRating } =
     useMoviesDetails(searchError ? null : selectedID);
+  const isOnWatchlist = useSelector(selectOnWatchlist(movie));
 
   if (searchError) return null;
   if (error) return <MovieError error={error} />;
@@ -60,12 +63,15 @@ function MovieDetails({ selectedID, searchError }) {
       <div className="px-6 py-6 lg:px-10">
         <p className="mb-6 text-sm italic md:text-base">{movie.Plot}</p>
 
-        {userRating ? (
-          <MovieUserRating userRating={userRating} />
+        {userRating || isOnWatchlist ? (
+          <MovieListStatus
+            userRating={userRating}
+            list={`${userRating ? "watched" : "watchlist"}`}
+          />
         ) : showRatingForm ? (
           <MovieRatingForm movie={movie} onShowForm={setShowRatingForm} />
         ) : (
-          <DesktopActions onShowForm={setShowRatingForm} />
+          <DesktopActions movie={movie} onShowForm={setShowRatingForm} />
         )}
       </div>
     </div>
@@ -73,10 +79,3 @@ function MovieDetails({ selectedID, searchError }) {
 }
 
 export default MovieDetails;
-
-{
-  /* <div className="flex items-center gap-2 rounded-lg bg-[#3c434a] px-6 py-4">
-            <span className="font-medium">You rated this movie with {userRating}</span>{" "}
-            <IoStar className="text-yellow-300" />
-          </div> */
-}

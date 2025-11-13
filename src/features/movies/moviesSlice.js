@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const moviesSlice = createSlice({
-  name: "moviesSlice",
+  name: "movies",
   initialState,
   reducers: {
     addToWatched(state, action) {
@@ -21,10 +21,14 @@ const moviesSlice = createSlice({
 export default moviesSlice.reducer;
 export const { addToWatched, addToWatchlist } = moviesSlice.actions;
 
-export const selectWatched = (state) => state.moviesSlice.watched;
-export const selectWatchlist = (state) => state.moviesSlice.watchlist;
+export const selectWatched = (state) => state.movies.watched;
+export const selectWatchlist = (state) => state.movies.watchlist;
 export const selectRating = (movie) => (state) => {
   if (!movie) return null;
   const watchedMovie = state.movies.watched.find((watched) => watched.imdbID === movie.imdbID);
   return watchedMovie ? watchedMovie.rating : null;
+};
+export const selectOnWatchlist = (movie) => (state) => {
+  if (!movie) return null;
+  return state.movies.watchlist.some((mov) => mov.imdbID === movie.imdbID);
 };
