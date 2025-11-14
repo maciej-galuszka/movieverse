@@ -17,6 +17,15 @@ export default {
           550: "#844FF0",
         },
       },
+      keyframes: {
+        textPulse: {
+          "0%, 100%": { color: "#ffffff" },
+          "50%": { color: "#a684ff" },
+        },
+      },
+      animation: {
+        textPulse: "textPulse 4s ease-in-out infinite",
+      },
     },
     screens: {
       xs: "400px",

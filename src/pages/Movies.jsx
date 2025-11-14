@@ -32,7 +32,7 @@ function Movies() {
         onSetQuery={handleQueryChange}
       />
       {error === null ? (
-        <h1 className="col-span-full mt-12 text-center text-2xl font-medium tracking-wide sm:mt-20 sm:text-5xl">
+        <h1 className="animate-textPulse col-span-full mt-12 text-center text-2xl font-medium tracking-wide sm:mt-20 sm:text-5xl">
           Looking for a movie? <br /> Start here!
         </h1>
       ) : (

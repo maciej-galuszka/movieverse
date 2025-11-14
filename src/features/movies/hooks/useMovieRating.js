@@ -10,7 +10,9 @@ export function useMovieRating(movie, onShowForm) {
   const handleAddToWatched = (e) => {
     e.preventDefault();
 
-    dispatch(addToWatched({ ...movie, rating, comment }));
+    dispatch(
+      addToWatched({ ...movie, rating, comment, watchDate: new Date().toISOString().split("T")[0] })
+    );
     setComment("");
     setRating(null);
     onShowForm(false);

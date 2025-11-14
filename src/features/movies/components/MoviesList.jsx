@@ -3,9 +3,9 @@ import MovieError from "./MovieError";
 import MovieItem from "./MovieItem";
 
 function MoviesList({ movies, isLoading, error, onSetSelectedID }) {
+  if (error) return <MovieError error={error} />;
   if (isLoading || !movies) return <MovieLoader />;
   if (!isLoading && !movies) return <MovieLoader />;
-  if (error) return <MovieError error={error} />;
 
   return (
     <ul className="divide-y divide-gray-600">

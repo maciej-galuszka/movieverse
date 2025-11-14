@@ -34,7 +34,9 @@ export function useMoviesSearch(initialQuery) {
         await Promise.all(
           data.Search.map(async (movie) => ((await imageExists(movie.Poster)) ? movie : null))
         )
-      ).filter(Boolean);
+      )
+        .filter(Boolean)
+        .filter((movie, index, self) => index === self.findIndex((m) => m.imdbID === movie.imdbID));
 
       if (!validMovies.length) throw new Error("Movie not found!");
 
