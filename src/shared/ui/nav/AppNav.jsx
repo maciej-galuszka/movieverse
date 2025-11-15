@@ -13,7 +13,7 @@ function AppNav() {
           WATCHED
         </NavButton>
 
-        <NavButton type="transparent" to="/app/wishlist">
+        <NavButton type="transparent" to="/app/watchlist">
           WATCHLIST
         </NavButton>
       </nav>

@@ -1,19 +1,37 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToWatched } from "../moviesSlice";
+import { updateWatched } from "../moviesSlice";
 
-export function useMovieRating(movie, onShowForm) {
+export function useMovieRating(movie, onShowForm, type = "add") {
   const dispatch = useDispatch();
   const [rating, setRating] = useState(null);
-  const [comment, setComment] = useState("");
+  const [notes, setNotes] = useState("");
 
   const handleAddToWatched = (e) => {
     e.preventDefault();
 
-    dispatch(
-      addToWatched({ ...movie, rating, comment, watchDate: new Date().toISOString().split("T")[0] })
-    );
-    setComment("");
+    if (type === "update") {
+      dispatch(
+        updateWatched({
+          ...movie,
+          rating,
+          notes,
+          date: new Date().toISOString().split("T")[0],
+        })
+      );
+    } else if (type === "add") {
+      dispatch(
+        addToWatched({
+          ...movie,
+          rating,
+          notes,
+          date: new Date().toISOString().split("T")[0],
+        })
+      );
+    }
+
+    setNotes("");
     setRating(null);
     onShowForm(false);
   };
@@ -21,8 +39,8 @@ export function useMovieRating(movie, onShowForm) {
   return {
     rating,
     setRating,
-    comment,
-    setComment,
+    notes,
+    setNotes,
     handleAddToWatched,
   };
 }

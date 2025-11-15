@@ -8,20 +8,22 @@ function Watched() {
   return (
     <section className="mx-auto min-h-full p-10 text-white lg:max-w-5xl lg:px-0">
       {watched.length > 0 ? (
-        <div className="rounded-lg bg-lightGray p-10">
-          <h1 className="mb-8 text-3xl font-medium">Your watched movies:</h1>
-          <ul className="divide-y divide-gray-600 overflow-hidden rounded-lg bg-darkerLightGray">
-            {watched.map((movie) => (
-              <WatchedItem key={movie.imdbID} movie={movie} onSetSelectedID={() => {}} />
-            ))}
-          </ul>
-        </div>
+        <>
+          <h1 className="mb-8 mt-4 text-5xl font-medium">Your watched movies:</h1>
+          <div className="rounded-lg bg-lightGray">
+            <ul className="divide-y divide-gray-600 overflow-hidden rounded-lg">
+              {watched.map((movie) => (
+                <WatchedItem key={movie.imdbID} movie={movie} onSetSelectedID={() => {}} />
+              ))}
+            </ul>
+          </div>
+        </>
       ) : (
         <div className="flex flex-col items-center gap-4 md:gap-10">
           <h1 className="animate-textPulse col-span-full mt-12 text-center text-2xl font-medium tracking-wide sm:mt-20 sm:text-5xl">
             You haven’t watched any movies yet. Start exploring!
           </h1>
-          <NavButton to="/app/movies">START WATCHING</NavButton>
+          <NavButton to="/app/movies">EXPLORE MOVIES</NavButton>
         </div>
       )}
     </section>
