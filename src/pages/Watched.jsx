@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { selectWatched } from "../features/movies/moviesSlice";
-import parseReleaseYear from "@/shared/utils/parseReleaseYear";
+import { sortMovies } from "../shared/utils/sortMovies";
+import { IoCheckmarkCircle } from "react-icons/io5";
 import NavButton from "../shared/ui/buttons/NavButton";
 import WatchedItem from "../features/movies/components/WatchedItem";
 
@@ -9,23 +10,15 @@ function Watched() {
   const [sortBy, setSortBy] = useState("date");
   const watched = useSelector(selectWatched);
 
-  const sortFunctions = {
-    title: (a, b) => a.Title.localeCompare(b.Title),
-    rating: (a, b) => b.rating - a.rating,
-    releaseDsc: (a, b) => parseReleaseYear(b.Year) - parseReleaseYear(a.Year),
-    releaseAsc: (a, b) => parseReleaseYear(a.Year) - parseReleaseYear(b.Year),
-    date: (a, b) => new Date(b.date) - new Date(a.date),
-  };
-
-  const sorted = [...watched].sort(sortFunctions[sortBy]);
+  const sorted = [...watched].sort(sortMovies[sortBy]);
 
   return (
     <section className="mx-auto min-h-full px-10 py-10 text-white sm:px-24 lg:max-w-5xl lg:px-0">
       {sorted.length > 0 ? (
         <div className="space-y-6">
           <div className="flex flex-col items-center justify-between gap-4 rounded-lg bg-lightGray px-4 py-5 md:flex-row md:gap-0 md:px-10 md:py-6">
-            <h1 className="text-2xl font-medium sm:text-3xl md:text-2xl lg:text-4xl">
-              Your watched movies
+            <h1 className="flex items-center gap-2 text-xl font-medium sm:gap-4 sm:text-3xl md:text-2xl lg:text-4xl">
+              <IoCheckmarkCircle className="text-violet-500" /> <span>Your watched movies</span>
             </h1>
             <select
               value={sortBy}

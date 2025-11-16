@@ -52,7 +52,7 @@ function MovieItem({ movie, onSetSelectedID }) {
       </div>
       {showForm && !isOnWatchList && (
         <div className="sm:hidden">
-          <MovieRatingForm movie={movie} onShowForm={setShowForm} />
+          <MovieRatingForm movie={movie} onShowForm={setShowForm} size="small" />
         </div>
       )}
     </li>

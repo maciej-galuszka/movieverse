@@ -51,7 +51,7 @@ export function Stars({ rating, onSetRating, size = "base" }) {
           );
         })}
       </div>
-      <span className="ml-4 text-lg text-yellow-300 sm:text-xl">
+      <span className="ml-2 text-lg text-yellow-300 sm:text-xl">
         {hoverRating > 0 || rating ? hoverRating || rating : <span className="invisible">10</span>}
       </span>
     </div>

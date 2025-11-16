@@ -25,7 +25,7 @@ function Movies() {
   };
 
   return (
-    <section className="mx-auto grid min-h-full grid-cols-1 grid-rows-[auto_1fr] items-start justify-center gap-x-6 gap-y-4 px-14 pb-12 text-white sm:grid-cols-2 sm:gap-y-6 sm:px-9 lg:max-w-5xl lg:gap-x-10 lg:px-0">
+    <section className="mx-auto grid min-h-full grid-cols-1 grid-rows-[auto_1fr] items-start justify-center gap-x-6 gap-y-4 px-8 pb-12 text-white sm:grid-cols-2 sm:gap-y-6 sm:px-9 lg:max-w-5xl lg:gap-x-10 lg:px-0">
       <MoviesSearchForm
         onSearchMovie={handleSearchMovie}
         query={query}
