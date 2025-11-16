@@ -2,7 +2,7 @@ import { IoStar } from "react-icons/io5";
 import { useMoviesDetails } from "../hooks/useMoviesDetails";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { IoReaderOutline } from "react-icons/io5";
+import { IoReader } from "react-icons/io5";
 import { selectOnWatchlist } from "../moviesSlice";
 import MovieRatingForm from "./MovieRatingForm";
 import MovieLoader from "./MovieLoader";
@@ -51,7 +51,7 @@ function MovieDetails({ selectedID, searchError }) {
                 className="mt-2 flex items-center gap-2 text-gray-300 transition-colors duration-300 hover:text-gray-100"
                 to={`/app/movies/${movie.imdbID}`}
               >
-                <IoReaderOutline className="text-base md:text-lg" />
+                <IoReader className="text-base md:text-lg" />
                 <span className="font-medium">Details</span>
               </NavLink>
             </li>

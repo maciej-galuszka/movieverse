@@ -6,10 +6,10 @@ function ButtonReturn() {
   return (
     <button
       type="button"
-      className="absolute right-4 top-4 rounded-full bg-violet-500 p-2 text-base sm:text-lg"
+      className="absolute right-2 top-2 rounded-full bg-violet-500 p-1 text-base sm:right-4 sm:top-4 sm:p-2 sm:text-lg"
       onClick={() => navigate(-1)}
     >
-      <IoMdArrowRoundBack />
+      <IoMdArrowRoundBack className="text-sm sm:text-base" />
     </button>
   );
 }

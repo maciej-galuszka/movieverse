@@ -1,4 +1,4 @@
-import { IoCalendarClearSharp, IoReaderOutline } from "react-icons/io5";
+import { IoCalendarClearSharp, IoReader } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -34,8 +34,8 @@ function MovieItem({ movie, onSetSelectedID }) {
             className="flex items-center gap-2 text-xs text-gray-300 transition-colors duration-300 hover:text-gray-100 sm:hidden"
             to={`/app/movies/${movie.imdbID}`}
           >
-            <IoReaderOutline />
-            <span className="font-medium">DETAILS</span>
+            <IoReader />
+            <span className="font-medium">Details</span>
           </NavLink>
 
           {userRating || isOnWatchList ? (

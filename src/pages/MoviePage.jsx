@@ -36,8 +36,8 @@ function MoviePage() {
             alt={`${movie.Title} cover photo`}
             className="w-64 flex-shrink-0 self-center"
           />
-          <div className="flex flex-1 flex-col">
-            <h1 className="text-4xl font-medium">{movie.Title}</h1>
+          <div className="mt-4 flex flex-1 flex-col md:mt-0">
+            <h1 className="text-xl font-medium sm:text-4xl">{movie.Title}</h1>
             <p className="text-gray-30 mt-1 text-sm">
               {movie.Type} • {movie.Released} • {movie.Runtime}
             </p>
@@ -70,14 +70,14 @@ function MoviePage() {
               </div>
             </div>
 
-            <p className="mt-10 text-sm text-white md:mt-auto md:text-base">
+            <p className="mt-4 text-sm text-white md:mt-auto md:text-base">
               Director: {movie.Director}
             </p>
             <p className="text-sm text-white md:text-base">Actors: {movie.Actors}</p>
           </div>
         </div>
 
-        <p className="mt-6 rounded-lg bg-darkerLightGray p-6 text-sm italic text-white md:text-lg">
+        <p className="mt-2 rounded-lg bg-darkerLightGray p-6 text-sm italic text-white md:mt-6 md:text-lg">
           {movie.Plot}
         </p>
         {userRating || isOnWatchlist ? (

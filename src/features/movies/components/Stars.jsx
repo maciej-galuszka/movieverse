@@ -25,7 +25,7 @@ export function Stars({ rating, onSetRating, size = "base" }) {
             );
           })}
         </div>
-        <span className="ml-4 text-base text-yellow-300 sm:text-lg">
+        <span className="ml-2 h-5 w-5 text-base text-yellow-300 sm:text-lg md:ml-4">
           {hoverRating > 0 || rating ? (
             hoverRating || rating
           ) : (

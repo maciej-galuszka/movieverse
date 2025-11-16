@@ -1,51 +1,51 @@
-import { IoCalendarClearSharp, IoReaderOutline, IoStar } from "react-icons/io5";
-import { PiNotePencilBold } from "react-icons/pi";
+import { IoCalendarClearSharp, IoReader } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteWatched } from "../moviesSlice";
+import { useState } from "react";
 import Button from "../../../shared/ui/buttons/Button";
 import MovieRatingForm from "./MovieRatingForm";
-import WatchedNotes from "./WatchedNotes";
-import { useState } from "react";
+import WatchedRating from "./WatchedRating";
 
 function WatchedItem({ movie }) {
   const [showForm, setShowForm] = useState(false);
-
   const dispatch = useDispatch();
+
   return (
-    <li className="flex justify-between px-10 py-8">
+    <li className="grid min-h-64 grid-cols-1 place-items-center gap-8 px-10 py-8 lg:flex lg:justify-between lg:gap-0">
+      <img className="w-72 lg:hidden" src={movie.Poster} alt={`${movie.Title} cover photo`} />
       <div className="flex gap-12">
-        <img className="w-32" src={movie.Poster} alt={`${movie.Title} cover photo`} />
+        <img
+          className="hidden w-64 lg:block lg:w-32"
+          src={movie.Poster}
+          alt={`${movie.Title} cover photo`}
+        />
         <div className="flex flex-col justify-center gap-2">
-          <p className="max-w-72 text-xl font-medium md:text-2xl">{movie.Title}</p>
-          <p className="flex flex-col items-start gap-1 text-gray-300">
+          <p className="max-w-72 text-lg font-medium sm:text-xl md:text-2xl">{movie.Title}</p>
+          <div className="flex flex-col items-start gap-1 text-gray-300">
             <span className="flex items-center gap-1.5 text-sm">
               <IoCalendarClearSharp aria-hidden="true" className="mb-[0.2rem]" />
               {movie.Year}
-            </span>
-            <span className="flex items-center gap-1.5 text-sm">
-              <IoStar className="mb-[0.2rem] text-sm text-yellow-300" />
-              <span>Rated: {movie.rating}</span>
             </span>
             <NavLink
               className="flex items-center gap-1.5 text-sm transition-colors duration-300 hover:text-gray-100"
               to={`/app/movies/${movie.imdbID}`}
             >
-              <IoReaderOutline className="-ml-0.5 text-base" />
+              <IoReader className="-ml-0.5 text-base" />
               <span className="font-medium">Details</span>
             </NavLink>
-          </p>
+          </div>
         </div>
       </div>
 
-      <div className="flex items-center gap-10">
+      <div className="flex flex-col items-center justify-center gap-10 lg:w-auto lg:flex-row">
         {showForm ? (
           <MovieRatingForm movie={movie} size="small" onShowForm={setShowForm} type="update" />
         ) : (
-          <WatchedNotes notes={movie.notes} />
+          <WatchedRating notes={movie.notes} rating={movie.rating} date={movie.date} />
         )}
 
-        <div className="ml-auto flex flex-col justify-center gap-6">
+        <div className="flex justify-center gap-6 lg:ml-auto lg:flex-col">
           <Button onClick={() => setShowForm(true)}>EDIT</Button>
           <Button onClick={() => dispatch(deleteWatched(movie.imdbID))}>REMOVE</Button>
         </div>
