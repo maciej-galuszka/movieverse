@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
+import initialState from "./initialState";
 import moviesReducer from "@/features/movies/moviesSlice.js";
 import authReducer from "@/features/auth/authSlice.js";
 
 const loadState = () => {
   try {
     const serialized = localStorage.getItem("appState");
-    if (!serialized) return undefined;
+    if (!serialized) return initialState;
     return JSON.parse(serialized);
   } catch (err) {
     console.error("Error loading state", err);

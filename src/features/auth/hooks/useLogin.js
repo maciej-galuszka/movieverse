@@ -8,21 +8,28 @@ export default function useLogin() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const error = useSelector((state) => state.auth.error);
+
   const [email, setEmail] = useState("John@example.com");
   const [password, setPassword] = useState("test123");
+  const [isLoading, setIsLoading] = useState(false);
 
-  function handleLogin(e) {
+  const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(login({ email, password }));
-  }
+    setIsLoading(true);
 
-  useEffect(
-    function () {
-      dispatch(resetError());
-      if (isAuthenticated) navigate("/", { replace: true });
-    },
-    [isAuthenticated, navigate, dispatch]
-  );
+    // request simulation
+    setTimeout(() => {
+      dispatch(login({ email, password }));
+      setIsLoading(false);
+    }, 1500);
+  };
 
-  return { email, password, setEmail, error, setPassword, handleLogin };
+  useEffect(() => {
+    dispatch(resetError());
+    if (isAuthenticated) {
+      navigate("/", { replace: true });
+    }
+  }, [isAuthenticated, navigate, dispatch]);
+
+  return { email, password, setEmail, error, setPassword, handleLogin, isLoading };
 }

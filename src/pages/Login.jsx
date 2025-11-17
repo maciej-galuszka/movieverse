@@ -2,7 +2,7 @@ import Button from "@/shared/ui/buttons/Button";
 import useLogin from "@/features/auth/hooks/useLogin";
 
 function Login() {
-  const { email, password, setEmail, error, setPassword, handleLogin } = useLogin();
+  const { email, password, setEmail, isLoading, error, setPassword, handleLogin } = useLogin();
 
   return (
     <section className="mx-auto flex h-full items-start justify-center sm:max-w-4xl md:max-w-5xl">
@@ -25,8 +25,18 @@ function Login() {
             required
           />
           {error && <p className="mt-4 rounded-sm bg-red-200 px-2 py-1 text-red-700">{error}</p>}
-          <div className="mt-3 flex justify-between gap-1 sm:mt-6 sm:block sm:space-x-5">
-            <Button htmlType="submit">LOGIN</Button>
+          <div className="mt-3 flex justify-between gap-3 sm:mt-6 sm:block sm:space-x-5">
+            <Button htmlType="submit" disabled={isLoading}>
+              {isLoading ? (
+                <span className="flex items-center gap-2">
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></span>
+                  LOGING IN...
+                </span>
+              ) : (
+                "LOGIN"
+              )}
+            </Button>
+
             <Button>CREATE ACCOUNT</Button>
           </div>
         </form>

@@ -9,9 +9,9 @@ import Profile from "@/pages/Profile";
 import Watched from "@/pages/Watched";
 import Movies from "@/pages/Movies";
 import Watchlist from "@/pages/Watchlist";
+import Settings from "@/pages/Settings";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
-import Settings from "../pages/Settings";
 
 const router = createHashRouter([
   {
@@ -20,14 +20,47 @@ const router = createHashRouter([
     children: [
       {
         path: "/",
+        loader: async () => {
+          const imageUrl = (await import("@/shared/assets/images/home-bg.jpg")).default;
+
+          await new Promise((resolve) => {
+            const img = new Image();
+            img.src = imageUrl;
+            img.onload = resolve;
+          });
+
+          return { imageUrl };
+        },
         element: <Home />,
       },
       {
         path: "/pricing",
+        loader: async () => {
+          const imageUrl = (await import("@/shared/assets/images/home-bg.jpg")).default;
+
+          await new Promise((resolve) => {
+            const img = new Image();
+            img.src = imageUrl;
+            img.onload = resolve;
+          });
+
+          return { imageUrl };
+        },
         element: <Pricing />,
       },
       {
         path: "/about",
+        loader: async () => {
+          const imageUrl = (await import("@/shared/assets/images/About.jpg")).default;
+
+          await new Promise((resolve) => {
+            const img = new Image();
+            img.src = imageUrl;
+            img.onload = resolve;
+          });
+
+          return { imageUrl };
+        },
         element: <About />,
       },
       {

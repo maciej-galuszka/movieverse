@@ -18,7 +18,6 @@ export function useMovieRating(movie, onShowForm, type = "add") {
           ...movie,
           rating,
           notes,
-          date: new Date().toISOString().split("T")[0],
         })
       );
     } else if (type === "addFromWatchlist") {

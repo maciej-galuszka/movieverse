@@ -13,25 +13,25 @@ function Dashboard() {
     {
       title: "Movies",
       link: "/app/movies",
-      icon: <PiFilmSlateFill className="text-5xl text-violet-400" />,
+      icon: <PiFilmSlateFill className="text-5xl text-violet-500" />,
       desc: "Browse and search new movies",
     },
     {
       title: "Watched",
       link: "/app/watched",
-      icon: <IoCheckmarkCircle className="text-5xl text-violet-400" />,
+      icon: <IoCheckmarkCircle className="text-5xl text-violet-500" />,
       desc: "Your watched movies",
     },
     {
       title: "Watchlist",
       link: "/app/watchlist",
-      icon: <IoBookmark className="text-5xl text-violet-400" />,
+      icon: <IoBookmark className="text-5xl text-violet-500" />,
       desc: "Movies you plan to watch",
     },
     {
       title: "Profile",
       link: "/app/profile",
-      icon: <FaUser className="text-5xl text-violet-400" />,
+      icon: <FaUser className="text-5xl text-violet-500" />,
       desc: "Check your activity and stats",
     },
   ];

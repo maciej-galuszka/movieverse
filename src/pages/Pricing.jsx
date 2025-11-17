@@ -3,14 +3,14 @@ import NavButton from "@/shared/ui/buttons/NavButton";
 
 function Pricing() {
   return (
-    <section className="mx-auto grid min-h-full max-w-6xl grid-cols-1 items-center gap-12 whitespace-nowrap text-center xl:h-full xl:grid-cols-3 xl:items-start">
-      <div className="md:w-6/7 mx-auto mt-12 w-[18rem] rounded-xl border-2 border-violet-500 bg-lightGray px-8 py-10 text-white transition-transform duration-300 hover:scale-105 xs:w-[20rem] xs:px-10 xs:py-12 xl:mx-0">
+    <section className="mx-auto grid min-h-full max-w-6xl grid-cols-1 items-center gap-2 whitespace-nowrap text-center sm:gap-12 xl:h-full xl:grid-cols-3 xl:items-start">
+      <div className="md:w-6/7 mx-auto mt-12 w-[18rem] rounded-xl border-2 border-violet-500 bg-lightGray px-6 py-8 text-white transition-transform duration-300 hover:scale-105 xs:w-[20rem] xs:px-10 xs:py-12 xl:mx-0">
         <h1 className="text-2xl font-medium">BASIC</h1>
         <p className="mt-6 text-6xl">
           <span className="text-2xl">$</span>0
         </p>
         <p className="mt-4 text-xs">per month</p>
-        <ul className="my-12 space-y-4 text-xs xs:text-sm">
+        <ul className="space-y-4 py-8 text-xs xs:text-sm sm:my-12">
           <li className="flex items-center">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" /> <span>Search movies</span>
           </li>
@@ -29,13 +29,13 @@ function Pricing() {
           START FREE
         </NavButton>
       </div>
-      <div className="md:w-6/7 mx-auto mt-12 w-[18rem] rounded-xl border-2 border-violet-500 bg-lightGray px-8 py-10 text-white transition-transform duration-300 hover:scale-105 xs:w-[20rem] xs:px-10 xs:py-12 xl:mx-0">
+      <div className="md:w-6/7 mx-auto mt-12 w-[18rem] rounded-xl border-2 border-violet-500 bg-lightGray px-6 py-8 text-white transition-transform duration-300 hover:scale-105 xs:w-[20rem] xs:px-10 xs:py-12 xl:mx-0">
         <h1 className="text-2xl font-medium">PRO</h1>
         <p className="mt-6 text-6xl">
           <span className="text-2xl">$</span>4.99
         </p>
         <p className="mt-4 text-xs">per month</p>
-        <ul className="my-12 space-y-4 text-xs xs:text-sm">
+        <ul className="space-y-4 py-8 text-xs xs:text-sm sm:my-12">
           <li className="flex items-center">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" /> <span>Everything in Basic</span>
           </li>
@@ -55,13 +55,13 @@ function Pricing() {
           UPGRADE TO PRO
         </NavButton>
       </div>
-      <div className="md:w-6/7 mx-auto mb-12 mt-12 w-[18rem] rounded-xl border-2 border-violet-500 bg-lightGray px-8 py-10 text-white transition-transform duration-300 hover:scale-105 xs:w-[20rem] xs:px-10 xs:py-12 xl:mx-0 xl:mb-0">
+      <div className="md:w-6/7 mx-auto mb-12 mt-12 w-[18rem] rounded-xl border-2 border-violet-500 bg-lightGray px-6 py-8 text-white transition-transform duration-300 hover:scale-105 xs:w-[20rem] xs:px-10 xs:py-12 xl:mx-0 xl:mb-0">
         <h1 className="text-2xl font-medium">ULTIMATE</h1>
         <p className="mt-6 text-6xl">
           <span className="text-2xl">$</span>9.99
         </p>
         <p className="mt-4 text-xs">per month</p>
-        <ul className="my-12 space-y-4">
+        <ul className="space-y-4 py-8 sm:my-12">
           <li className="flex items-center text-xs xs:text-sm">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" /> <span>Everything in Pro</span>
           </li>
