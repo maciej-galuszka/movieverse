@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
-import { selectWatched, selectWatchlist } from "../features/movies/moviesSlice";
 import { Link } from "react-router-dom";
+import { selectWatched, selectWatchlist } from "../features/movies/moviesSlice";
+import { IoBookmark, IoStar } from "react-icons/io5";
+import { IoCheckmarkCircle } from "react-icons/io5";
 
 function Profile() {
   const watched = useSelector(selectWatched);
@@ -19,17 +21,26 @@ function Profile() {
 
       <div className="grid gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
         <div className="flex items-center justify-between rounded-xl bg-lightGray px-6 py-3 shadow-lg sm:block sm:p-6">
-          <h2 className="text-base font-semibold sm:mb-2 sm:text-2xl">Watched Movies</h2>
+          <h2 className="flex items-center gap-2.5 text-base font-semibold sm:mb-2 sm:text-2xl">
+            <IoCheckmarkCircle className="text-violet-500" />
+            Watched Movies
+          </h2>
           <p className="text-xs text-gray-300 sm:text-lg">{watched.length} movies</p>
         </div>
 
         <div className="flex items-center justify-between rounded-xl bg-lightGray px-6 py-3 shadow-lg sm:block sm:p-6">
-          <h2 className="text-base font-semibold sm:mb-2 sm:text-2xl">Watchlist</h2>
+          <h2 className="flex items-center gap-2.5 text-base font-semibold sm:mb-2 sm:text-2xl">
+            <IoBookmark className="text-violet-500" />
+            Watchlist
+          </h2>
           <p className="text-xs text-gray-300 sm:text-lg">{watchlist.length} movies</p>
         </div>
 
         <div className="flex items-center justify-between rounded-xl bg-lightGray p-6 px-6 py-3 shadow-lg sm:block sm:p-6">
-          <h2 className="text-base font-semibold sm:mb-2 sm:text-2xl">Average Rating</h2>
+          <h2 className="flex items-center gap-2.5 text-base font-semibold sm:mb-2 sm:text-2xl">
+            <IoStar className="text-violet-500" />
+            Average Rating
+          </h2>
           {averageRating ? (
             <p className="text-xs text-gray-300 sm:text-lg">{averageRating} / 10</p>
           ) : (

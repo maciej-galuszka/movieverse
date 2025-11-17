@@ -1,8 +1,12 @@
+import { NavLink } from "react-router-dom";
 import avatar from "@/shared/assets/images/avatar.png";
 
 function DropdownHeader() {
   return (
-    <div className="flex items-center gap-3 border-b border-violet-300 px-5 py-3">
+    <NavLink
+      className="flex items-center gap-3 border-b border-violet-300 px-5 py-3"
+      to="/app/profile"
+    >
       <img
         src={avatar}
         alt="John's profile picture"
@@ -12,7 +16,7 @@ function DropdownHeader() {
         <p className="text-sm text-violet-700 sm:text-base">John Doe</p>
         <p className="text-xxs text-violet-400 sm:text-xs">Basic plan</p>
       </div>
-    </div>
+    </NavLink>
   );
 }
 

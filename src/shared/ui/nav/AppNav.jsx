@@ -1,10 +1,21 @@
+import { useState } from "react";
 import NavButton from "@/shared/ui/buttons/NavButton";
 import ProfileDropdown from "./ProfileDropdown";
 
 function AppNav() {
+  const [isToggled, setIsToggled] = useState(false);
+
+  function handleToggleDropdown() {
+    setIsToggled((toggled) => !toggled);
+  }
+
   return (
     <div className="flex items-center gap-1 md:gap-4">
-      <nav className="flex justify-between md:gap-5" aria-label="App navigation">
+      <nav
+        className="flex justify-between md:gap-5"
+        aria-label="App navigation"
+        onClick={() => setIsToggled(false)}
+      >
         <NavButton type="transparent" to="/app/movies">
           MOVIES
         </NavButton>
@@ -17,7 +28,7 @@ function AppNav() {
           WATCHLIST
         </NavButton>
       </nav>
-      <ProfileDropdown />
+      <ProfileDropdown isToggled={isToggled} onSetToggled={handleToggleDropdown} />
     </div>
   );
 }

@@ -24,7 +24,7 @@ function Settings() {
         {options.map((option) => (
           <div
             key={option.key}
-            className="relative cursor-pointer rounded-xl bg-lightGray p-4 shadow-lg transition-transform duration-200 hover:scale-[1.015] hover:shadow-2xl sm:p-6"
+            className="relative cursor-pointer rounded-xl bg-lightGray px-4 py-3 shadow-lg transition-transform duration-200 hover:scale-[1.015] hover:shadow-2xl sm:px-6 sm:py-5"
             onClick={() => handleToggle(option.key)}
           >
             <h2 className="text-md mb-2 font-semibold sm:text-xl">{option.label}</h2>

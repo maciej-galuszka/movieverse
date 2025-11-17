@@ -1,11 +1,16 @@
+import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 
 function MoviesSearchForm({ onSearchMovie, query, onSetQuery }) {
+  const [prevQuery, setPrevQuery] = useState("");
+
   return (
     <form
       className="col-span-full mt-12 flex flex-col gap-2 rounded-xl bg-lightGray p-4 sm:p-6 md:mt-14 md:p-8"
       onSubmit={(e) => {
         e.preventDefault();
+        if (query === prevQuery) return;
+        setPrevQuery(query);
         onSearchMovie();
       }}
     >
@@ -17,6 +22,7 @@ function MoviesSearchForm({ onSearchMovie, query, onSetQuery }) {
           aria-label="Search movies"
           placeholder="Find your favorite movie!"
           onChange={(e) => onSetQuery(e.target.value)}
+          spellCheck={false}
         />
         <IoSearch className="absolute right-4 top-1/2 -translate-y-1/2 text-2xl text-violet-500" />
       </div>
