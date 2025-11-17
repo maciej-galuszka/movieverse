@@ -11,6 +11,7 @@ import Movies from "@/pages/Movies";
 import Watchlist from "@/pages/Watchlist";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
+import Settings from "../pages/Settings";
 
 const router = createHashRouter([
   {
@@ -62,6 +63,10 @@ const router = createHashRouter([
           {
             path: "profile",
             element: <Profile />,
+          },
+          {
+            path: "settings",
+            element: <Settings />,
           },
         ],
       },

@@ -9,6 +9,13 @@ const CREDENTIALS = {
 const initialState = {
   isAuthenticated: false,
   user: null,
+  settings: {
+    notifications: true,
+    emailUpdates: false,
+    locationAccess: false,
+    saveHistory: true,
+  },
+  error: null,
 };
 
 const authSlice = createSlice({
@@ -22,20 +29,30 @@ const authSlice = createSlice({
         action.payload.password === CREDENTIALS.password
       ) {
         state.isAuthenticated = true;
-        state.user = "John";
+        state.user = ["John", "Doe"];
       } else {
         state.error = "Incorrect email or password!";
       }
     },
+
     logout(state) {
       state.isAuthenticated = false;
       state.user = null;
     },
+
     resetError(state) {
       state.error = null;
+    },
+
+    updateSettings(state, action) {
+      const { key } = action.payload;
+      state.settings[key] = !state.settings[key];
     },
   },
 });
 
-export const { login, logout, resetError } = authSlice.actions;
+export const selectUser = (state) => state.auth.user;
+export const selectSettings = (state) => state.auth.settings;
+
+export const { login, logout, resetError, updateSettings } = authSlice.actions;
 export default authSlice.reducer;

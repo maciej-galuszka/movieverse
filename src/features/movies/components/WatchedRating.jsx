@@ -4,7 +4,7 @@ import { IoStar } from "react-icons/io5";
 
 function WatchedRating({ notes, rating, date }) {
   return (
-    <div className="flex max-h-32 w-[14rem] flex-col gap-2 rounded-lg bg-darkerLightGray px-6 py-4 sm:w-[18.5rem]">
+    <div className="flex w-[14rem] flex-col gap-2 rounded-lg bg-darkerLightGray px-6 py-4 sm:w-[18.5rem]">
       <div className="flex items-center gap-1.5">
         <span className="text-sm font-medium md:text-base">Your rating: {rating}/10</span>
         <IoStar className="mb-1 ml-0.5 text-yellow-300" />
@@ -16,9 +16,11 @@ function WatchedRating({ notes, rating, date }) {
       </div>
 
       {notes && (
-        <div className="flex items-center gap-1.5">
-          <PiNotePencilBold /> Notes:
-          <span className="max-h-16 overflow-y-auto px-1 italic">{notes}</span>
+        <div className="flex flex-col gap-0.5">
+          <span className="flex items-center gap-1.5">
+            <PiNotePencilBold /> Notes:
+          </span>
+          <span className="px-1 text-sm italic sm:text-base">{notes}</span>
         </div>
       )}
     </div>

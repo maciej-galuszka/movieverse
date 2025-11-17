@@ -12,7 +12,7 @@ function Watchlist({ movie }) {
 
   return (
     <li className="grid min-h-64 grid-cols-1 place-items-center gap-8 px-10 py-8 lg:flex lg:justify-between lg:gap-0">
-      <img className="w-72 lg:hidden" src={movie.Poster} alt={`${movie.Title} cover photo`} />
+      <img className="w-56 lg:hidden" src={movie.Poster} alt={`${movie.Title} cover photo`} />
       <div className="flex gap-12">
         <img
           className="hidden w-64 lg:block lg:w-32"
@@ -48,7 +48,7 @@ function Watchlist({ movie }) {
         )}
         <div className="flex justify-center gap-6 lg:ml-auto lg:flex-col">
           <Button onClick={() => setShowForm(true)}>
-            <span className="text-xxs sm:text-base">ADD TO WATCHED</span>
+            <span className="text-xxs sm:text-base">WATCHED</span>
           </Button>
           <Button onClick={() => dispatch(deleteFromWatchlist(movie.imdbID))}>
             <span className="text-xxs sm:text-base">REMOVE</span>

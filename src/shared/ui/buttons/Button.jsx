@@ -6,7 +6,7 @@ function Button({
   children,
 }) {
   const base =
-    "font-500 tracking-wide text-xs sm:text-base sm:px-3 md:px-5 sm:py-2 px-2 py-1 font-medium text-white transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-50";
+    "font-500 tracking-wide text-xs sm:text-base px-3 md:px-5 sm:py-2  py-2 font-medium text-white transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-50";
 
   const styles = {
     transparent: base + " hover:text-gray-200",
