@@ -1,18 +1,17 @@
 {
   "name": "movieverse",
-  "homepage": "https://maciej-galuszka.github.io/movieverse",
+  "homepage": ".",
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "author": "Maciej Gałuszka <maciej-galuszka@outlook.com> (https://github.com/maciej-galuszka)",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
+    "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.10.0",
@@ -20,8 +19,7 @@
     "react-dom": "^19.1.1",
     "react-icons": "^5.5.0",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^7.9.5",
-    "use-debounce": "^10.0.6"
+    "react-router-dom": "^7.9.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
@@ -35,9 +33,6 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.22",
-    "gh-pages": "^6.3.0",
-    "globals": "^16.4.0",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.7.1",

@@ -10,7 +10,7 @@ function Pricing() {
           <span className="text-2xl">$</span>0
         </p>
         <p className="mt-4 text-xs">per month</p>
-        <ul className="space-y-4 py-8 text-xs xs:text-sm sm:my-12">
+        <ul className="space-y-4 py-6 text-xs xs:text-sm sm:my-4">
           <li className="flex items-center">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" /> <span>Search movies</span>
           </li>
@@ -35,7 +35,7 @@ function Pricing() {
           <span className="text-2xl">$</span>4.99
         </p>
         <p className="mt-4 text-xs">per month</p>
-        <ul className="space-y-4 py-8 text-xs xs:text-sm sm:my-12">
+        <ul className="space-y-4 py-6 text-xs xs:text-sm sm:my-4">
           <li className="flex items-center">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" /> <span>Everything in Basic</span>
           </li>
@@ -61,7 +61,7 @@ function Pricing() {
           <span className="text-2xl">$</span>9.99
         </p>
         <p className="mt-4 text-xs">per month</p>
-        <ul className="space-y-4 py-8 sm:my-12">
+        <ul className="space-y-4 py-6 sm:my-4">
           <li className="flex items-center text-xs xs:text-sm">
             <IoCheckmark className="mr-2 h-6 w-6 shrink-0" /> <span>Everything in Pro</span>
           </li>

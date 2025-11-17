@@ -6,7 +6,9 @@ function About() {
   return (
     <section
       className="relative grid h-full place-items-center overflow-hidden bg-cover bg-top"
-      style={{ backgroundImage: `url(${imageUrl})` }}
+      style={{
+        backgroundImage: `linear-gradient(rgba(36,42,46,0.4), rgba(36,42,46,0.4)), url(${imageUrl})`,
+      }}
     >
       <div className="relative m-12 max-w-2xl rounded-lg border-2 border-violet-500 bg-lightGray px-6 py-8 text-center md:px-20 md:py-16">
         <h1

@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "@/app/AppLayout";
 import Home from "@/pages/Home";
 import Pricing from "@/pages/Pricing";
@@ -13,7 +13,7 @@ import Settings from "@/pages/Settings";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     element: <AppLayout />,
     errorElement: null,
