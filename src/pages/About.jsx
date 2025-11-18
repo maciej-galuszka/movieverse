@@ -17,7 +17,7 @@ function About() {
         >
           Your Movie Journey <br className="sm:hidden" /> Starts Here
         </h1>
-        <p className="sm:text-md mt-6 space-y-2 text-sm text-gray-300">
+        <div className="sm:text-md mt-6 space-y-2 text-sm text-gray-300">
           <ul className="flex list-disc flex-col items-center space-y-2 pl-6 text-left text-xs font-medium sm:text-base">
             <li>Search thousands of movies </li>
             <li>Rate films and build your watched history</li>
@@ -26,7 +26,7 @@ function About() {
             <li>Track viewing statistics</li>
             <li>Customize your experience</li>
           </ul>
-        </p>
+        </div>
       </div>
     </section>
   );

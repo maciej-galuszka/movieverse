@@ -6,7 +6,7 @@ import authReducer from "@/features/auth/authSlice.js";
 const loadState = () => {
   try {
     const serialized = localStorage.getItem("appState");
-    if (!serialized) return initialState;
+    if (!serialized) return undefined;
     return JSON.parse(serialized);
   } catch (err) {
     console.error("Error loading state", err);
@@ -30,16 +30,25 @@ const store = configureStore({
     movies: moviesReducer,
     auth: authReducer,
   },
-  preloadedState: persistedState,
+  preloadedState: persistedState || initialState,
 });
 
 store.subscribe(() => {
-  saveState({
+  const state = store.getState();
+
+  const stateToPersist = {
     auth: {
-      settings: store.getState().auth.settings,
+      isAuthenticated: state.auth.isAuthenticated,
+      user: state.auth.user,
+      settings: state.auth.settings,
     },
-    movies: store.getState().movies,
-  });
+    movies: {
+      watchlist: state.movies.watchlist,
+      watched: state.movies.watched,
+    },
+  };
+
+  saveState(stateToPersist);
 });
 
 export default store;

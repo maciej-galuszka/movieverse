@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const CREDENTIALS = {
-  email: "John@example.com",
-  password: "test123",
-  error: "",
+const DEMO_USER = {
+  email: import.meta.env.VITE_DEMO_EMAIL ?? "John@example.com",
+  password: import.meta.env.VITE_DEMO_PASSWORD ?? "test123",
+  name: "John Doe",
 };
 
-const initialState = {
+const savedState = JSON.parse(localStorage.getItem("auth"));
+
+const initialState = savedState || {
   isAuthenticated: false,
   user: null,
   settings: {
@@ -19,17 +21,20 @@ const initialState = {
 };
 
 const authSlice = createSlice({
-  name: "authSlice",
+  name: "auth",
   initialState,
   reducers: {
     login(state, action) {
-      state.error = "";
-      if (
-        action.payload.email === CREDENTIALS.email &&
-        action.payload.password === CREDENTIALS.password
-      ) {
+      state.error = null;
+
+      const { email, password } = action.payload;
+
+      if (email === DEMO_USER.email && password === DEMO_USER.password) {
         state.isAuthenticated = true;
-        state.user = ["John", "Doe"];
+        state.user = {
+          name: DEMO_USER.name,
+          email: DEMO_USER.email,
+        };
       } else {
         state.error = "Incorrect email or password!";
       }
@@ -46,13 +51,16 @@ const authSlice = createSlice({
 
     updateSettings(state, action) {
       const { key } = action.payload;
-      state.settings[key] = !state.settings[key];
+      if (key in state.settings) {
+        state.settings[key] = !state.settings[key];
+      }
     },
   },
 });
 
 export const selectUser = (state) => state.auth.user;
 export const selectSettings = (state) => state.auth.settings;
+export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
 
 export const { login, logout, resetError, updateSettings } = authSlice.actions;
 export default authSlice.reducer;

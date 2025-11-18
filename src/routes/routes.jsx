@@ -6,6 +6,7 @@ import About from "@/pages/About";
 import MoviePage from "@/pages/MoviePage";
 import Dashboard from "@/pages/Dashboard";
 import Profile from "@/pages/Profile";
+import NotFound from "@/pages/NotFound";
 import Watched from "@/pages/Watched";
 import Movies from "@/pages/Movies";
 import Watchlist from "@/pages/Watchlist";
@@ -16,8 +17,8 @@ import PublicRoute from "./PublicRoute";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
-    errorElement: null,
     children: [
+      { path: "*", element: <NotFound /> },
       {
         path: "/",
         loader: async () => {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
           return { imageUrl };
         },
         element: <Home />,
+        errorElement: <NotFound />,
       },
       {
         path: "/pricing",
@@ -51,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: "/about",
         loader: async () => {
-          const imageUrl = (await import("@/shared/assets/images/About.jpg")).default;
+          const imageUrl = (await import("@/shared/assets/images/about.jpg")).default;
 
           await new Promise((resolve) => {
             const img = new Image();
@@ -66,12 +68,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <PublicRoute />,
-        errorElement: null,
       },
       {
         path: "/app",
         element: <ProtectedRoute />,
-        errorElement: null,
         children: [
           {
             index: true,

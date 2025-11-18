@@ -17,11 +17,10 @@ export default function useLogin() {
     e.preventDefault();
     setIsLoading(true);
 
-    // request simulation
     setTimeout(() => {
       dispatch(login({ email, password }));
       setIsLoading(false);
-    }, 1500);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -30,6 +29,13 @@ export default function useLogin() {
       navigate("/", { replace: true });
     }
   }, [isAuthenticated, navigate, dispatch]);
+
+  useEffect(() => {
+    if (error) {
+      setEmail("");
+      setPassword("");
+    }
+  }, [error]);
 
   return { email, password, setEmail, error, setPassword, handleLogin, isLoading };
 }
