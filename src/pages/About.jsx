@@ -5,7 +5,7 @@ function About() {
 
   return (
     <section
-      className="relative grid h-full place-items-center overflow-hidden bg-cover bg-top"
+      className="relative grid h-full items-start justify-center overflow-hidden bg-cover bg-top sm:place-items-center"
       style={{
         backgroundImage: `linear-gradient(rgba(36,42,46,0.4), rgba(36,42,46,0.4)), url(${imageUrl})`,
       }}
@@ -18,7 +18,7 @@ function About() {
           Your Movie Journey <br className="sm:hidden" /> Starts Here
         </h1>
         <p className="sm:text-md mt-6 space-y-2 text-sm text-gray-300">
-          <ul className="list-disc space-y-2 pl-6 text-left text-xs font-medium sm:text-base">
+          <ul className="flex list-disc flex-col items-center space-y-2 pl-6 text-left text-xs font-medium sm:text-base">
             <li>Search thousands of movies </li>
             <li>Rate films and build your watched history</li>
             <li>Create and manage your own watchlist</li>
