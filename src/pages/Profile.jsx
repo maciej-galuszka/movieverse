@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { selectWatched, selectWatchlist } from "../features/movies/moviesSlice";
-import { IoBookmark, IoStar } from "react-icons/io5";
-import { IoCheckmarkCircle } from "react-icons/io5";
+import { selectUser } from "@/features/auth/authSlice";
+import { selectWatched, selectWatchlist } from "@/features/movies/moviesSlice";
+import { IoBookmark, IoStar, IoCheckmarkCircle } from "react-icons/io5";
 
 function Profile() {
   const watched = useSelector(selectWatched);
   const watchlist = useSelector(selectWatchlist);
+  const user = useSelector(selectUser);
 
   const averageRating =
     watched.length > 0
@@ -17,7 +18,7 @@ function Profile() {
 
   return (
     <section className="mx-auto max-w-5xl px-12 pb-6 pt-12 text-white sm:px-0">
-      <h1 className="mb-4 text-2xl font-bold sm:mb-8 sm:text-4xl">Your Profile</h1>
+      <h1 className="mb-4 text-2xl font-bold sm:mb-8 sm:text-4xl">{user.name}</h1>
 
       <div className="grid gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
         <div className="flex items-center justify-between rounded-xl bg-lightGray px-6 py-3 shadow-lg sm:block sm:p-6">

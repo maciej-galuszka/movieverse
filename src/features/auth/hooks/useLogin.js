@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { resetError, login } from "../authSlice";
 
+// Hook for simulating login functionality
+// Handles simulated loading state, error, and passing the user data to Redux state
+
 export default function useLogin() {
   const navigate = useNavigate();
   const dispatch = useDispatch();

@@ -5,6 +5,10 @@ import { selectRating } from "../moviesSlice";
 const KEY = "e82c1ba1";
 const URL = `https://www.omdbapi.com/?apikey=${KEY}`;
 
+// Hook for fetching movie details from OMDb API.
+// Handles loading state, errors, and user rating from Redux.
+
+// plot="short" for details on the search page and plot="short" for the MoviePage with full details
 export function useMoviesDetails(selectedID, plot = "short") {
   const [movie, setMovie] = useState(null);
   const [showRatingForm, setShowRatingForm] = useState(false);
@@ -23,6 +27,7 @@ export function useMoviesDetails(selectedID, plot = "short") {
       return;
     }
 
+    // AbortController for aborting previous unfinished fetch requests
     const controller = new AbortController();
     const { signal } = controller;
 

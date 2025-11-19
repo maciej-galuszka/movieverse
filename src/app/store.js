@@ -3,6 +3,8 @@ import initialState from "./initialState";
 import moviesReducer from "@/features/movies/moviesSlice.js";
 import authReducer from "@/features/auth/authSlice.js";
 
+// Function to load saved state from local storage. If saved state exists it returns it, otherwise it returns undefined
+
 const loadState = () => {
   try {
     const serialized = localStorage.getItem("appState");
@@ -13,6 +15,8 @@ const loadState = () => {
     return undefined;
   }
 };
+
+// Function to save state to local storage
 
 const saveState = (state) => {
   try {
@@ -25,6 +29,7 @@ const saveState = (state) => {
 
 const persistedState = loadState();
 
+// Creating Redux store
 const store = configureStore({
   reducer: {
     movies: moviesReducer,
@@ -32,6 +37,8 @@ const store = configureStore({
   },
   preloadedState: persistedState || initialState,
 });
+
+// Store subscription to save certain pieces of state to local storage
 
 store.subscribe(() => {
   const state = store.getState();

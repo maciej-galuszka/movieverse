@@ -6,7 +6,7 @@ function AvatarButton({ isToggled }) {
     <>
       <img
         src={avatar}
-        alt="John's profile picture"
+        alt="User profile picture"
         className="w-6 flex-shrink-0 rounded-full border-2 border-violet-500 md:block md:w-10"
       />
       <IoChevronDown

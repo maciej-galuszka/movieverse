@@ -4,6 +4,16 @@ import MovieDetails from "@/features/movies/components/MovieDetails";
 import MovieList from "@/features/movies/components/MoviesList";
 import MoviesSearchForm from "@/features/movies/components/MoviesSearchForm";
 
+/**
+ * Movies Page
+ * -----------
+ * Page for searching movies and browsing results.
+ * - Uses the custom hook `useMoviesSearch` to fetch movies from the OMDb API.
+ * - Synchronizes the search query with URL query parameters.
+ * - Displays the search form, movie list, and details for the selected movie.
+ * - If there are no search results (error === null), shows a prompt to start searching.
+ */
+
 function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
@@ -18,6 +28,8 @@ function Movies() {
     isLoading,
     handleSearchMovie,
   } = useMoviesSearch(initialQuery);
+
+  // Update query in URL when search input changes
 
   const handleQueryChange = (query) => {
     setQuery(query);

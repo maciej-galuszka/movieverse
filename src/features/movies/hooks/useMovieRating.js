@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToWatched } from "../moviesSlice";
-import { updateWatched } from "../moviesSlice";
-import { deleteFromWatchlist } from "../moviesSlice";
+import { addToWatched, updateWatched, deleteFromWatchlist } from "../moviesSlice";
+
+// Hook for rating movies and adding them to watched state
 
 export function useMovieRating(movie, onShowForm, type = "add") {
   const dispatch = useDispatch();
@@ -12,35 +12,32 @@ export function useMovieRating(movie, onShowForm, type = "add") {
   const handleAddToWatched = (e) => {
     e.preventDefault();
 
+    if (rating === null) return;
+
+    // Hook performs diferent dispatches based on wheter it is added to watched, updated or added from watchlist
+
+    const baseData = {
+      ...movie,
+      rating,
+      notes,
+    };
+
     if (type === "update") {
-      dispatch(
-        updateWatched({
-          ...movie,
-          rating,
-          notes,
-        })
-      );
-    } else if (type === "addFromWatchlist") {
+      dispatch(updateWatched(baseData));
+    } else {
       dispatch(
         addToWatched({
-          ...movie,
-          rating,
-          notes,
+          ...baseData,
           date: new Date().toISOString().split("T")[0],
         })
       );
-      dispatch(deleteFromWatchlist(movie.imdbID));
-    } else if (type === "add") {
-      dispatch(
-        addToWatched({
-          ...movie,
-          rating,
-          notes,
-          date: new Date().toISOString().split("T")[0],
-        })
-      );
+
+      if (type === "addFromWatchlist") {
+        dispatch(deleteFromWatchlist(movie.imdbID));
+      }
     }
 
+    // Closing the form and reseting the inputs
     setNotes("");
     setRating(null);
     onShowForm(false);

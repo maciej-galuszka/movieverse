@@ -1,3 +1,13 @@
+/**
+ * Predefined sorting functions for movie lists.
+ *
+ * - title: sorts alphabetically by movie title (A → Z)
+ * - rating: sorts by user rating in descending order (highest → lowest)
+ * - releaseDsc: sorts by release year descending (newest → oldest)
+ * - releaseAsc: sorts by release year ascending (oldest → newest)
+ * - date: sorts by the date the movie was added to the list (newest → oldest)
+ */
+
 import parseReleaseYear from "./parseReleaseYear";
 
 export const sortMovies = {

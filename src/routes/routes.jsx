@@ -14,11 +14,36 @@ import Settings from "@/pages/Settings";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 
+/**
+ * Main app router
+ * -----------------------
+ * Structure:
+ * - "/" - main page
+ * - "/pricing" - pricing page
+ * - "/about" - about page
+ * - "/login" - public route (only for not logged users)
+ * - "/app" - protected routes (only for logged users)
+ *   - dashboard
+ *   - watched
+ *   - watchlist
+ *   - movies
+ *   - movies/:id (page with full movie details)
+ *   - profile
+ *   - settings
+ * - "*" - fallback: NotFound
+ *
+ * Loader functions to preload background images
+ *
+ */
+
 const router = createBrowserRouter([
   {
-    element: <AppLayout />,
+    element: <AppLayout />, // layout for all pages
     children: [
-      { path: "*", element: <NotFound /> },
+      { path: "*", element: <NotFound /> }, // fallback for unknown paths
+
+      // Main page
+
       {
         path: "/",
         loader: async () => {
@@ -35,6 +60,9 @@ const router = createBrowserRouter([
         element: <Home />,
         errorElement: <NotFound />,
       },
+
+      // Pricing page
+
       {
         path: "/pricing",
         loader: async () => {
@@ -50,6 +78,9 @@ const router = createBrowserRouter([
         },
         element: <Pricing />,
       },
+
+      // About page
+
       {
         path: "/about",
         loader: async () => {
@@ -65,10 +96,16 @@ const router = createBrowserRouter([
         },
         element: <About />,
       },
+
+      // Public route: login
+
       {
         path: "/login",
         element: <PublicRoute />,
       },
+
+      // Protected routes: login required
+
       {
         path: "/app",
         element: <ProtectedRoute />,

@@ -1,32 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Demo user credentials (hardcoded for demo/login simulation)
 const DEMO_USER = {
   email: "John@example.com",
   password: "test123",
   name: "John Doe",
 };
 
-const savedState = JSON.parse(localStorage.getItem("auth"));
-
-console.log("EMAIL:", import.meta.env.VITE_DEMO_EMAIL);
-console.log("PASSWORD:", import.meta.env.VITE_DEMO_PASSWORD);
-
-const initialState = savedState || {
-  isAuthenticated: false,
-  user: null,
+// Initial state of auth slice
+const initialState = {
+  isAuthenticated: false, // whether user is logged in
+  user: null, // user info object
   settings: {
     notifications: true,
     emailUpdates: false,
     locationAccess: false,
     saveHistory: true,
   },
-  error: null,
+  error: null, // error message for login failures
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
+    // Attempt to log in with email/password
     login(state, action) {
       state.error = null;
 
@@ -43,15 +41,18 @@ const authSlice = createSlice({
       }
     },
 
+    // Log out user
     logout(state) {
       state.isAuthenticated = false;
       state.user = null;
     },
 
+    // Reset error message (e.g., on input change)
     resetError(state) {
       state.error = null;
     },
 
+    // Toggle user settings (notifications, etc.)
     updateSettings(state, action) {
       const { key } = action.payload;
       if (key in state.settings) {
@@ -61,9 +62,11 @@ const authSlice = createSlice({
   },
 });
 
+// Selectors for components
 export const selectUser = (state) => state.auth.user;
 export const selectSettings = (state) => state.auth.settings;
 export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
 
+// Export actions
 export const { login, logout, resetError, updateSettings } = authSlice.actions;
 export default authSlice.reducer;

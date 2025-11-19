@@ -1,6 +1,17 @@
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 
+/**
+ * A search form component for movies.
+ *
+ * Props:
+ * - onSearchMovie: function to trigger a movie search
+ * - query: current search input value
+ * - onSetQuery: function to update the search input
+ *
+ * Prevents duplicate searches by tracking the previous query.
+ */
+
 function MoviesSearchForm({ onSearchMovie, query, onSetQuery }) {
   const [prevQuery, setPrevQuery] = useState("");
 

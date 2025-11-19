@@ -40,7 +40,7 @@ function Dashboard() {
     <section className="mx-auto min-h-full px-12 py-12 pb-12 text-white sm:py-16 lg:max-w-4xl">
       <h1 className="mb-10 text-center text-3xl font-bold tracking-wider sm:mb-16 sm:text-5xl">
         Welcome back, <br className="block sm:hidden" />
-        {user[0]} {user[1]}
+        {user.name}
       </h1>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">

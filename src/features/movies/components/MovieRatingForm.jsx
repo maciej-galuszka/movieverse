@@ -3,6 +3,22 @@ import { Stars } from "@/features/movies/components/Stars";
 import Button from "@/shared/ui/buttons/Button";
 import ButtonCloseForm from "@/shared/ui/buttons/ButtonCloseForm";
 
+/**
+ * Form component for submitting or editing a movie rating and review.
+ *
+ * Props:
+ * - movie: the movie object being rated
+ * - onShowForm: function to toggle the visibility of the form
+ * - size: "base" or "small" to control layout/size of the form
+ * - type: "add", "addFromWatchlist", or "update" determines form behavior and button text
+ *
+ * Features:
+ * - Allows users to select a star rating via the <Stars> component
+ * - Allows users to write notes/comments about the movie
+ * - Handles adding or updating the movie in the watched list
+ * - Renders differently if size="small" for compact layouts
+ */
+
 function MovieRatingForm({ movie, onShowForm, size = "base", type }) {
   const { rating, setRating, notes, setNotes, handleAddToWatched } = useMovieRating(
     movie,

@@ -1,6 +1,21 @@
 import { useState } from "react";
 import { IoStar, IoStarOutline } from "react-icons/io5";
 
+/**
+ * A star rating component allowing users to select a rating from 1 to 10.
+ *
+ * Props:
+ * - rating: current rating value (number)
+ * - onSetRating: callback function called when the user selects a rating
+ * - size: "base" or "small" to control the layout and icon size
+ *
+ * Features:
+ * - Highlights stars on hover to preview the rating
+ * - Updates the rating when a star is clicked
+ * - Displays the current rating next to the stars
+ * - Supports two layouts: small compact version or base/large version
+ */
+
 export function Stars({ rating, onSetRating, size = "base" }) {
   const [hoverRating, setHoverRating] = useState();
 

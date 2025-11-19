@@ -4,6 +4,9 @@ import imageExists from "@/shared/utils/imageExists";
 const KEY = "e82c1ba1";
 const URL = `https://www.omdbapi.com/?apikey=${KEY}`;
 
+// Hook for searching movies based on query from OMDb API.
+// Handles loading state and errors
+
 export function useMoviesSearch(initialQuery) {
   const [movies, setMovies] = useState(null);
   const [selectedID, setSelectedID] = useState(null);
@@ -16,6 +19,7 @@ export function useMoviesSearch(initialQuery) {
     if (!query) return;
     if (controllerRef.current) controllerRef.current.abort();
 
+    // AbortController for aborting previous unfinished fetch requests
     const controller = new AbortController();
     controllerRef.current = controller;
 
@@ -30,6 +34,7 @@ export function useMoviesSearch(initialQuery) {
 
       if (!data.Search) throw new Error("Movie not found!");
 
+      // Validating the API response, filtering results without movie.Poster
       const validMovies = (
         await Promise.all(
           data.Search.map(async (movie) => ((await imageExists(movie.Poster)) ? movie : null))
@@ -40,6 +45,7 @@ export function useMoviesSearch(initialQuery) {
 
       if (!validMovies.length) throw new Error("Movie not found!");
 
+      // Setting selected ID to the first search result in order to display its details
       setSelectedID(validMovies[0]?.imdbID);
       setMovies(validMovies);
     } catch (err) {
@@ -55,6 +61,7 @@ export function useMoviesSearch(initialQuery) {
     }
   }
 
+  // Firing the search function if the initialQuery is passed only on the first render
   useEffect(() => {
     if (initialQuery && movies === null && !error) {
       handleSearchMovie();
