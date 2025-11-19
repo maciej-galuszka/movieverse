@@ -100,7 +100,7 @@ src/
 │ ├─ assets/
 │ └─ styles/
 │ └─ utils/
-
+```
 ---
 
 ## 🧪 Installing & Running Locally
