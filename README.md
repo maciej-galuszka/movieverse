@@ -189,7 +189,6 @@ User profile with an overview of activity: total watched movies, watchlist count
 
 ---
 
----
 
 ## 📬 Contact
 
