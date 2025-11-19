@@ -6,7 +6,7 @@ MovieVerse is a modern single page web application that helps you keep track of 
 
 ## 🚀 Demo
 
-🔗 Live preview: _(add your Netlify link here)_
+🔗 Live preview: https://movieverse-demo.netlify.app/app/watchlist
 
 ---
 
@@ -67,7 +67,7 @@ MovieVerse is a modern single page web application that helps you keep track of 
 ---
 
 ## 📁 Project Structure
-
+```
 src/
 ├─ app/
 │ ├─ App.jsx
@@ -155,8 +155,8 @@ _(Add your images here)_
 ## 📬 Contact
 
 **Maciej Gałuszka**  
-Email: _(optional)_  
-LinkedIn: _(optional)_
+Email: maciej.galuszka@outlook.com
+LinkedIn: https://www.linkedin.com/in/maciej-gałuszka-259672363
 
 ---
 
