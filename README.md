@@ -6,7 +6,7 @@ MovieVerse is a modern single page web application that helps you keep track of 
 
 ## 🚀 Demo
 
-🔗 Live preview: https://movieverse-demo.netlify.app/app/watchlist
+🔗 Live preview: https://movieverse-demo.netlify.app/
 
 ---
 
