@@ -37,7 +37,7 @@ function MoviePage() {
             className="w-64 flex-shrink-0 self-center"
           />
           <div className="mt-4 flex flex-1 flex-col md:mt-0">
-            <h1 className="text-xl font-medium sm:text-4xl">{movie.Title}</h1>
+            <h1 className="text-xl font-semibold sm:text-4xl">{movie.Title}</h1>
             <p className="text-gray-30 mt-1 text-sm">
               {movie.Type} • {movie.Released} • {movie.Runtime}
             </p>

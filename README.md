@@ -16,7 +16,6 @@ MovieVerse is a modern single page web application that helps you keep track of 
 
 - Search for movies using the OMDb API
 - View detailed information about each movie
-- Smooth debounced search experience
 
 ### ⭐ Ratings & Opinions
 
@@ -67,6 +66,7 @@ MovieVerse is a modern single page web application that helps you keep track of 
 ---
 
 ## 📁 Project Structure
+
 ```
 src/
 ├─ app/
@@ -149,7 +149,45 @@ MovieVerse was created to practice:
 
 ## 📸 Screenshots
 
-_(Add your images here)_
+### 🏠 Home Page
+
+Clean and welcoming landing screen of the SPA
+
+![Home](./screenshots/home.jpg)
+
+---
+
+### 🔐 Login Page
+
+Authentication screen with form validation, error handling, and Redux-based mock login. Successful login redirects the user to the main application dashboard.
+
+![Login](@/assets/screenshots/login.jpg)
+
+---
+
+### 🔎 Movie Search
+
+Advanced movie search powered by the OMDb API. Includes poster validation, duplicate filtering, loading states, and an adaptive results list that updates in real time.
+
+![Search](@/assets/screenshots/search.jpg)
+
+---
+
+### ⭐ Watched Movies
+
+A dedicated section for all watched titles. Users can add ratings, write personal notes, sort movies by multiple criteria, and keep a persistent history stored in localStorage.
+
+![Watched](@/assets/screenshots/watched.jpg)
+
+---
+
+### 👤 Profile Page
+
+User profile with an overview of activity: total watched movies, watchlist count, average personal rating, and a gallery of recently watched films.
+
+![Profile](@/assets/screenshots/profile.jpg)
+
+---
 
 ---
 

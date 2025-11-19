@@ -29,7 +29,7 @@ function MovieDetails({ selectedID, searchError }) {
         />
         <div className="flex w-full flex-col px-2 py-4 pt-6 md:px-6 md:pt-8 lg:px-10">
           <h2
-            className={`${movie.Title.length > 15 ? "text-sm md:text-base lg:text-lg" : "text-base md:text-xl lg:text-2xl"} font-medium`}
+            className={`${movie.Title.length > 15 ? "text-sm md:text-base lg:text-lg" : "text-base md:text-xl lg:text-2xl"} font-semibold`}
           >
             {movie.Title}
           </h2>

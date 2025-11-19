@@ -27,7 +27,7 @@ function MovieItem({ movie, onSetSelectedID }) {
           </p>
           <p className="flex items-center gap-2 text-xs text-gray-300">
             <IoCalendarClearSharp aria-hidden="true" className="mb-0.5" />
-            <span>{movie.Year}</span>
+            <span className="font-medium">{movie.Year}</span>
           </p>
 
           <NavLink
