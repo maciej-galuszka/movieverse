@@ -67,7 +67,7 @@ MovieVerse is a modern single page web application that helps you keep track of 
 ---
 
 ## 📁 Project Structure
-```
+...
 src/
 ├─ app/
 │ ├─ App.jsx
@@ -100,7 +100,7 @@ src/
 │ ├─ assets/
 │ └─ styles/
 │ └─ utils/
-```
+...
 ---
 
 ## 🧪 Installing & Running Locally
