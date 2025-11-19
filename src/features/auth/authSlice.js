@@ -1,12 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const DEMO_USER = {
-  email: import.meta.env.VITE_DEMO_EMAIL ?? "John@example.com",
-  password: import.meta.env.VITE_DEMO_PASSWORD ?? "test123",
+  email: "John@example.com",
+  password: "test123",
   name: "John Doe",
 };
 
 const savedState = JSON.parse(localStorage.getItem("auth"));
+
+console.log("EMAIL:", import.meta.env.VITE_DEMO_EMAIL);
+console.log("PASSWORD:", import.meta.env.VITE_DEMO_PASSWORD);
 
 const initialState = savedState || {
   isAuthenticated: false,
