@@ -153,7 +153,7 @@ MovieVerse was created to practice:
 
 Clean and welcoming landing screen of the SPA
 
-![Home](./screenshots/home.jpg)
+![Home](@/shared/assets/screenshots/home.jpg)
 
 ---
 
@@ -161,7 +161,7 @@ Clean and welcoming landing screen of the SPA
 
 Authentication screen with form validation, error handling, and Redux-based mock login. Successful login redirects the user to the main application dashboard.
 
-![Login](@/assets/screenshots/login.jpg)
+![Login](@/shared/assets/screenshots/login.jpg)
 
 ---
 
@@ -169,7 +169,7 @@ Authentication screen with form validation, error handling, and Redux-based mock
 
 Advanced movie search powered by the OMDb API. Includes poster validation, duplicate filtering, loading states, and an adaptive results list that updates in real time.
 
-![Search](@/assets/screenshots/search.jpg)
+![Search](@/shared/assets/screenshots/search.jpg)
 
 ---
 
@@ -177,7 +177,7 @@ Advanced movie search powered by the OMDb API. Includes poster validation, dupli
 
 A dedicated section for all watched titles. Users can add ratings, write personal notes, sort movies by multiple criteria, and keep a persistent history stored in localStorage.
 
-![Watched](@/assets/screenshots/watched.jpg)
+![Watched](@/shared/assets/screenshots/watched.jpg)
 
 ---
 
@@ -185,7 +185,7 @@ A dedicated section for all watched titles. Users can add ratings, write persona
 
 User profile with an overview of activity: total watched movies, watchlist count, average personal rating, and a gallery of recently watched films.
 
-![Profile](@/assets/screenshots/profile.jpg)
+![Profile](@/shared/assets/screenshots/profile.jpg)
 
 ---
 
