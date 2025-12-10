@@ -28,7 +28,6 @@ function Watchlist() {
               <option value="date" className="hover:violet-300">
                 SORT BY DATE ADDED
               </option>
-              <option value="rating">SORT BY RATING</option>
               <option value="title">SORT BY TITLE</option>
               <option value="releaseDsc">SORT BY NEWEST</option>
               <option value="releaseAsc">SORT BY OLDEST</option>

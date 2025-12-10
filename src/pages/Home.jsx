@@ -1,14 +1,12 @@
-import { useLoaderData } from "react-router-dom";
 import NavButton from "@/shared/ui/buttons/NavButton";
+import backgroundImage from "@/shared/assets/images/home-bg.jpg";
 
 function Home() {
-  const { imageUrl } = useLoaderData();
-
   return (
     <section
       className="h-full bg-cover bg-center text-center"
       style={{
-        backgroundImage: `linear-gradient(rgba(36,42,46,0.85), rgba(36,42,46,0.85)), url(${imageUrl})`,
+        backgroundImage: `linear-gradient(rgba(36,42,46,0.85), rgba(36,42,46,0.85)), url(${backgroundImage})`,
       }}
     >
       <div className="flex-center justify-centers mx-auto flex max-w-6xl flex-col items-center px-5 sm:px-10">

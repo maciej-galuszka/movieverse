@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/features/auth/authSlice";
-import avatar from "@/shared/assets/images/avatar.png";
+import avatar from "@/shared/assets/images/avatar.jpg";
 
 function DropdownHeader() {
   const user = useSelector(selectUser);

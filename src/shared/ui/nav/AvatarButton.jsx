@@ -1,5 +1,5 @@
 import { IoChevronDown, IoPersonCircleOutline } from "react-icons/io5";
-import avatar from "@/shared/assets/images/avatar.png";
+import avatar from "@/shared/assets/images/avatar.jpg";
 
 function AvatarButton({ isToggled }) {
   return (

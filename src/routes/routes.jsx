@@ -46,36 +46,13 @@ const router = createBrowserRouter([
 
       {
         path: "/",
-        loader: async () => {
-          const imageUrl = (await import("@/shared/assets/images/home-bg.jpg")).default;
-
-          await new Promise((resolve) => {
-            const img = new Image();
-            img.src = imageUrl;
-            img.onload = resolve;
-          });
-
-          return { imageUrl };
-        },
         element: <Home />,
-        errorElement: <NotFound />,
       },
 
       // Pricing page
 
       {
         path: "/pricing",
-        loader: async () => {
-          const imageUrl = (await import("@/shared/assets/images/home-bg.jpg")).default;
-
-          await new Promise((resolve) => {
-            const img = new Image();
-            img.src = imageUrl;
-            img.onload = resolve;
-          });
-
-          return { imageUrl };
-        },
         element: <Pricing />,
       },
 
@@ -83,17 +60,6 @@ const router = createBrowserRouter([
 
       {
         path: "/about",
-        loader: async () => {
-          const imageUrl = (await import("@/shared/assets/images/about.jpg")).default;
-
-          await new Promise((resolve) => {
-            const img = new Image();
-            img.src = imageUrl;
-            img.onload = resolve;
-          });
-
-          return { imageUrl };
-        },
         element: <About />,
       },
 
